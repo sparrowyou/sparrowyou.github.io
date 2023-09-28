@@ -1,0 +1,1489 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="边缘计算, Sparrow">
+    <meta name="description" content="边缘计算边缘计算基础边缘及本概念
+边缘计算是指在网络边缘执行的一种新型计算模型：介于终端设备和云端之间。网络边缘设备科将终端设备产生的数据进行预处理，之后再传给云端，以减少传送的带宽和能耗。边缘设备还可以执行部分计算任务：存储、计算、隐私保">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>边缘计算 | Sparrow</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Sparrow</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Sparrow</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">边缘计算</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%80%9A%E4%BF%A1/">
+                                <span class="chip bg-color">通信</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/">
+                                <span class="chip bg-color">边缘计算</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
+                                通信
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2023-09-28
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="边缘计算"><a href="#边缘计算" class="headerlink" title="边缘计算"></a>边缘计算</h1><h2 id="边缘计算基础"><a href="#边缘计算基础" class="headerlink" title="边缘计算基础"></a>边缘计算基础</h2><h3 id="边缘及本概念"><a href="#边缘及本概念" class="headerlink" title="边缘及本概念"></a>边缘及本概念</h3><blockquote>
+<p>边缘计算是指在网络边缘执行的一种新型计算模型：介于终端设备和云端之间。<br>网络边缘设备科将终端设备产生的数据进行预处理，之后再传给云端，以减少传送的带宽和能耗。<br>边缘设备还可以执行部分计算任务：存储、计算、隐私保护等。</p>
+</blockquote>
+<p><strong>关键内容：</strong></p>
+<ul>
+<li>应用程序/服务功能可分割<br>  可以将应用或服务的一个任务分割成若干个子任务，并且可将任务迁移到边缘设备执行。</li>
+<li>数据可分布</li>
+<li>资源可分布</li>
+</ul>
+<h3 id="边缘计算的关键技术"><a href="#边缘计算的关键技术" class="headerlink" title="边缘计算的关键技术"></a>边缘计算的关键技术</h3><ul>
+<li>计算迁移<br>对海量终端设备产生的数据进行部分或全部计算的预处理，过滤无用信息，降低传输带宽。</li>
+<li>5G通信技术<br>降低数据传输时延</li>
+<li>新型存储系统<br>边缘计算的数据具有高时效性、高多样性、高关联性等特点。<br>边缘计算存储系统需要低延迟、大容量、高可靠性等特点。</li>
+<li>轻量级内核和函数库<br>边缘设备的硬件资源有限，应该以计算时消耗更少的资源和时间、达到最好的性能为目标。</li>
+<li>边缘计算编程模型<br>边缘节点多为异构平台，每个结点的运行环境可能不同，所以在边缘计算模型下部署应用程序时传统的编程模型可能不适用。<ul>
+<li>计算流</li>
+</ul>
+</li>
+</ul>
+<h2 id="边缘智能"><a href="#边缘智能" class="headerlink" title="边缘智能"></a>边缘智能</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>边缘智能为边缘计算和人工智能的结合：边缘计算可以AI更多的数据和应用场景、边缘数据可利用AI增强计算。<br><strong>要素</strong></p>
+<ul>
+<li>准确率（accuracy）</li>
+<li>延迟（latency）</li>
+<li>功耗（energy）</li>
+<li>内存占用（memory footprint）</li>
+</ul>
+<h3 id="边缘智能技术栈"><a href="#边缘智能技术栈" class="headerlink" title="边缘智能技术栈"></a>边缘智能技术栈</h3><h4 id="边缘智能算法（-由于边缘设备计算资源受限，所以需要减少算法所需的计算量）"><a href="#边缘智能算法（-由于边缘设备计算资源受限，所以需要减少算法所需的计算量）" class="headerlink" title="边缘智能算法（ 由于边缘设备计算资源受限，所以需要减少算法所需的计算量）"></a>边缘智能算法（ 由于边缘设备计算资源受限，所以需要减少算法所需的计算量）</h4><ul>
+<li><p>深度模型压缩</p>
+<table>
+<thead>
+<tr>
+<th align="center">压缩技术</th>
+<th align="center">描述</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">参数量化、共享、剪裁</td>
+<td align="center">删除冗余连接和神经元</td>
+<td align="center">支持训练中压缩</td>
+<td align="center">泛化性降低</td>
+</tr>
+<tr>
+<td align="center">低秩逼近</td>
+<td align="center">将高秩矩阵重构为低秩矩阵</td>
+<td align="center">最小化性能变化</td>
+<td align="center">重构计算量较大</td>
+</tr>
+<tr>
+<td align="center">知识迁移</td>
+<td align="center">利用预训练的网络构建紧凑型网络</td>
+<td align="center">最大化先验知识</td>
+<td align="center">需重新训练</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>原生边缘只能算法：直接基于首先的边缘计算设备设计算法</p>
+<ul>
+<li>SqueezeNet</li>
+<li>MobileNets</li>
+<li>flattened networks</li>
+<li>Xception</li>
+</ul>
+</li>
+</ul>
+<h4 id="边缘智能编程库"><a href="#边缘智能编程库" class="headerlink" title="边缘智能编程库"></a>边缘智能编程库</h4><blockquote>
+<p>边缘深度学习编程库向上提供编程接口方便用户开发，向下调用深度学习库，兼容多种设备</p>
+</blockquote>
+<p>计算框架：<br>可执行训练和预测任务：TensorFlow、Caffe2、Pytorch、MXNet、Paddlepaddle…<br>只执行预测任务：TensorFlow Lite、CoreML、TensorRT…</p>
+<h4 id="边缘智能数据处理平台"><a href="#边缘智能数据处理平台" class="headerlink" title="边缘智能数据处理平台"></a>边缘智能数据处理平台</h4><ul>
+<li>EdgeXFoundry</li>
+<li>intelligent edge fabric</li>
+<li>OoenVDAP</li>
+</ul>
+<h4 id="边缘智能操作系统"><a href="#边缘智能操作系统" class="headerlink" title="边缘智能操作系统"></a>边缘智能操作系统</h4><blockquote>
+<p>边缘计算操作系统倾向于对数据、计算任务、计算资源进行管理</p>
+</blockquote>
+<ul>
+<li>robot operating system, ROS</li>
+</ul>
+<h4 id="边缘智能芯片"><a href="#边缘智能芯片" class="headerlink" title="边缘智能芯片"></a>边缘智能芯片</h4><p>…</p>
+<h4 id="边缘智能设备"><a href="#边缘智能设备" class="headerlink" title="边缘智能设备"></a>边缘智能设备</h4><p>…</p>
+<h3 id="边缘智能的协同计算"><a href="#边缘智能的协同计算" class="headerlink" title="边缘智能的协同计算"></a>边缘智能的协同计算</h3><h4 id="云边协同"><a href="#云边协同" class="headerlink" title="云边协同"></a>云边协同</h4><blockquote>
+<p>边缘端负责数据的采集、本地数据计算和存储；云端负责大数据的分析和算法更新</p>
+</blockquote>
+<ol>
+<li><p>训练—预测云边协同<br>云端负责设计和训练模型，并更新升级模型；边缘负责采集实时数据并预测，同时根据云端模型实时更新。<br>该模式应用于无人驾驶、智慧城市、社区安防等领域</p>
+</li>
+<li><p>云端导向云边协同<br>该模式下模型规模比较大，边缘难以完成全部预测任务，所以云端不仅承担模型的训练还要完成一部分预测任务。</p>
+</li>
+<li><p>边缘导向云边协同<br>该模式下，云端训练初始只能模型，然后下载到边缘。边缘完成预测的同时，基于自己采集的数据进一步训练模型，以达到个性化的需求。</p>
+<blockquote>
+<p>迁移学习是边缘导向云边协同的代表性工作</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="边边协同"><a href="#边边协同" class="headerlink" title="边边协同"></a>边边协同</h4><blockquote>
+<p>提升系统整体能力，解决单个边缘的计算能力有限的问题；解决数据孤岛问题。</p>
+</blockquote>
+<ul>
+<li>边边预测协同<br>边缘承担全部的预测任务，整体任务标准与边缘设备的算力相匹配，减少每个边缘的计算压力，充分利用边缘计算资源。</li>
+<li>边边分布式训练协同<br>每个边缘都承担智能模型的训练任务，边缘上拥有整个计算模型或部分模型。</li>
+<li>边边联邦训练协同</li>
+</ul>
+<h4 id="边物协同"><a href="#边物协同" class="headerlink" title="边物协同"></a>边物协同</h4><p>…</p>
+<h4 id="云边物协同"><a href="#云边物协同" class="headerlink" title="云边物协同"></a>云边物协同</h4><blockquote>
+<p>云边物协同利用整个链路上的计算资源，以发挥不同设备的计算、存储优势并最小化通信开销。</p>
+</blockquote>
+<ul>
+<li>功能性协同<br>根据不同设备所处的地理空间、角色等不同而承担不同的功能</li>
+<li>性能性协同<br>由于算力的限制，不同层级的设备承担不同算力需求的任务，包括任务的纵向切割和分配。</li>
+</ul>
+<h3 id="支撑边缘智能的计算框架"><a href="#支撑边缘智能的计算框架" class="headerlink" title="支撑边缘智能的计算框架"></a>支撑边缘智能的计算框架</h3><ul>
+<li>边缘智能的应用开发所遇到的挑战<ul>
+<li>算力限制</li>
+<li>数据共享和协作能力限制</li>
+<li>算法、软件、硬件的组合爆炸问题</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>OpenEI：面向边缘设备的开放数据处理框架</li>
+</ol>
+<ul>
+<li>包管理器<br>包管理器为算法执行的环境，安装在边缘平台的操作系统上，提供智能算法运行的环境。<br>设计模型专用的数据摆放格式，减少CPU与GPU之间的通信开销，协同优化模型和计算框架，减少加速模型的执行速度。</li>
+<li>模型选择器<br>模型选择器包括多个优化后的模型和一个选择算法。<br>模型同时针对包管理器做针对性优化，两者联合优化后实现算法运行时的实时加速，解决算力受限问题。<br>悬着算法将首先评估边缘屏体的资源承载能力，然后选择满足准确率和资源占用率的合适模型，已解决算法与计算平台不匹配的问题。</li>
+<li>开放库<br>边缘化设备中的所有资源都可被URL代表，libei提供一整套标准化的ResultAPI,使OpenEI及其所在的硬件设备可以被其他边缘设备访问，并向其童工数据共享和功能协作服务，实现深度学习引擎在异构边缘设备上的共享。</li>
+</ul>
+<ol start="2">
+<li>NestDNN：动态分配多任务资源的移动端深度学习框架<br>…</li>
+<li>AdaDeep：应用驱动的模型选择框架<br>…</li>
+<li>DeepCham：自适应移动目标识别框架<br>…</li>
+<li>DDNN：分布式神经网络框架<br>…</li>
+</ol>
+<h2 id="边缘计算资源调度"><a href="#边缘计算资源调度" class="headerlink" title="边缘计算资源调度"></a>边缘计算资源调度</h2><h3 id="资源调度概述"><a href="#资源调度概述" class="headerlink" title="资源调度概述"></a>资源调度概述</h3><p><strong>边缘计算的资源调度</strong></p>
+<ul>
+<li>以任务为中心的调度<br>用户的任务需要过呢据本身的需求进行一个最优决策：本地处理挥着调度到边缘服务器上处理。调度到边缘服务器需要付出额外的能量、通信和时延等代价</li>
+<li>以资源为中心的调度<br>由于边缘资源的限制，需要合理的分配和配置边缘资源：边缘资源的部署、云边的协同计算、边缘之间的迁移计算以及边缘系统中服务的智能放置。以适应用户需求的变化提升资源利用率和用户的服务质量需求。<br><strong>性能指标</strong></li>
+<li>时延<ol>
+<li>任务从用户到边缘的传输时间</li>
+<li>任务在边缘的处理时间</li>
+<li>计算结果从边缘回传给用户的时间</li>
+</ol>
+</li>
+<li>能耗<ol>
+<li>任务在本地计算产生的能耗</li>
+<li>任务传输到边缘产生的能耗</li>
+<li>任务在边缘计算完成产生的能耗</li>
+</ol>
+</li>
+<li>开销<br>  综合性能指标。任务卸载时的开销：能耗开销、通信开销、边缘处理任务的开销。</li>
+<li>资源利用率、系统效用和收益<br><strong>研究方向</strong></li>
+<li>卸载决策<br>由于用户层资源受限。需要将全部或部分计算密集型任务卸载到资源充足的地方来处理，可卸载到有空闲资源的其他用户设备、边缘服务器、云服务器。计算卸载解决了用户层设备资源存储、计算性能、及能效等方面的不足。<ul>
+<li>0/1卸载<br>  计算任务要么全在本地处理要么全部卸载到其他地方处理。</li>
+<li>部分卸载<br>  计算任务可拆分，可以一部分在本地处理。另一部分卸载到其他地方处理。</li>
+</ul>
+</li>
+<li>资源分配<br>资源分配是在计算卸载过程中合理分配边缘系统中的资源完成卸载、任务处理。<ul>
+<li>通信资源<br>  任务卸载过程中的数据传输所需的无线资源：功率、信道、带宽等</li>
+<li>计算资源<br>  CPU的周期数、计算资源块</li>
+<li>存储资源<br>  …</li>
+</ul>
+</li>
+<li>资源配置<br>用户的请求负载随时间变化，边缘系统工作量随之波动，可能会导致资源配置过度或配置不足等问题。<ul>
+<li>任务分配<br>  从用户的角度出发进行被动的资源配置</li>
+<li>资源放置<br>  从资源提供者的角度进行主动的资源配置</li>
+</ul>
+</li>
+</ul>
+<h3 id="资源调度的主要技术"><a href="#资源调度的主要技术" class="headerlink" title="资源调度的主要技术"></a>资源调度的主要技术</h3><p>根据控制中心是否搜集全局信息分为集中式方法和分布式方法<br>集中式方法：基于用户和边缘的相关信息进行集中决策，能获得很好的调度效果。</p>
+<h4 id="集中式方法"><a href="#集中式方法" class="headerlink" title="集中式方法"></a>集中式方法</h4><ol>
+<li>基于凸优化算法<br>计算卸载、资源分配、资源配置建立的问题优化模型通常是非凸的NP难问题。解决思路为将非凸问题转化为近凸优化或凸优化问题，进而采用可行的凸优化方法。<br>凸优化算法主要技术：Lyapunov、分解技术、交替方向乘子法以及分支约束等。</li>
+<li>近似算法<br>近似算法的研究集中在计算卸载和资源配置。基本思想是利用现有的近似算法解决建立的NP难问题。<br>近似算法相较于凸优化算法复杂度有所降低，但无法保证一定能在多项式时间内找到局部最优解。</li>
+<li>启发式算法<br>简单启发式：贪婪算法<br>元起发式：遗传算法、蚁群算法、粒子群算法、模拟退火、禁忌收索等<br>简单启发式算法收索高效，但容易陷入局部最优解；元起发式算法参数过多，计算结果难以复用，无法快速有效的进行参数调整。</li>
+<li>基于机器学习算法<br>与动态环境交互的同时设计资源调度策略可建模为MDP，利用强化学习和深度学习解决MDP问题。<br>机器学习算法大多数使用在计算卸载，并偏向使用强化学习和深度学习结合DQN方法来解决问题。</li>
+</ol>
+<h4 id="分布式方法"><a href="#分布式方法" class="headerlink" title="分布式方法"></a>分布式方法</h4><ol>
+<li>博弈论<br>利用博弈论进行资源管理的一般方法是基于其一些解决方案（纳什均衡理论）及其精炼或扩展，来获得网络实体的行为策略，并以此分析竞争边缘资源的尸体用户之间的决策行为。</li>
+<li>匹配理论</li>
+<li>拍卖方法</li>
+<li>联邦学习</li>
+<li>区块链</li>
+</ol>
+<h2 id="边缘计算系统"><a href="#边缘计算系统" class="headerlink" title="边缘计算系统"></a>边缘计算系统</h2><p>边缘计算系统对边缘计算数据传输路径上的计算、存储与网络资源进行统一的控制与管理，构建边缘计算基础设施，方便开发者快速开发和部署应用。</p>
+<h3 id="Cloudlet"><a href="#Cloudlet" class="headerlink" title="Cloudlet"></a>Cloudlet</h3><p>Cloudlet 是一个部署在边缘的可信资源丰富的主机或机群，与互联网连接，可被周围设备访问，为其提供服务。<br>三层架构：移动设备-Cloudlet-云<br>特性：</p>
+<ol>
+<li>软状态：cloudlet可看作位于网络边缘的小型云计算中心，作为应用的服务端要维护和客户端交互的状态信息。但不需要长期维护交互信息，可以进行自我管理。</li>
+<li>资源丰富</li>
+<li>靠近用户</li>
+</ol>
+<h4 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h4><ol>
+<li>计算迁移</li>
+<li>资源发现与选择</li>
+<li>动态NM合成</li>
+</ol>
+<h3 id="PCloud"><a href="#PCloud" class="headerlink" title="PCloud"></a>PCloud</h3><p>PCloud可以将附近的计算、存储、输入/输出设备与云计算资源整合，是这些资源无缝的为西东设备提供支持。<br>ParaDrop以Wifi接入点/无线网关作为硬件平台构建边缘计算系统，为第三方应用在网络的边缘提供计算和存储支援。<br>ParaDrop更接近用户和数据源，可感知网络连接状态，降低反馈延迟，增强数据安全和用户隐私。<br>…</p>
+<h3 id="Firework"><a href="#Firework" class="headerlink" title="Firework"></a>Firework</h3><ol>
+<li>分布式数据共享</li>
+<li>Firework.View</li>
+<li>Firework.Node</li>
+<li>Firework.Manager</li>
+</ol>
+<h1 id="SDN"><a href="#SDN" class="headerlink" title="SDN"></a>SDN</h1><h2 id="SDN概述"><a href="#SDN概述" class="headerlink" title="SDN概述"></a>SDN概述</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.xzclass.com/?p=121">什么是SDN</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.xzclass.com/?p=298">SDN和NFV之间的关系</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.xzclass.com/?p=309">SDN、OpenFlow和OpenDaylight</a></li>
+</ul>
+<h1 id="OpenFlow"><a href="#OpenFlow" class="headerlink" title="OpenFlow"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/581217782">OpenFlow</a></h1><p>OpenFlow是一种网络通信协议，应用于SDN架构中控制器和转发器之间的通信。<br>整个OpenFlow协议架构由控制器(Controller)、OpenFlow交换机(OpenFlow Switch)、以及安全通道(Secure Channel)组成。<br>控制器对网络进行集中控制，实现控制层的功能；OpenFlow交换机负责数据层的转发，与控制器之间通过安全通道进行消息交互，实现表项下发、状态上报等功能。</p>
+<h2 id="OpenFlow控制器"><a href="#OpenFlow控制器" class="headerlink" title="OpenFlow控制器"></a>OpenFlow控制器</h2><p>控制器负责控制逻辑的实现和流表的生成、维护、配置和派发。</p>
+<ol>
+<li>NOX/POX<br>NOX是第一款真正的SDN OpenFlowi控制器，由Nicira公司在O8年开发，并且捐赠给了开源组织。<br>NOX支持OpenFlow V1.0,并提供相关C++的APl,采用异步的、基于时间的编程模型。<br>而POX可以视作是更新的、基于Python的NOX版本，支持Windows,Mac OSi和Linux系统上的Pythoni开发，主要用于研究和教育领域。</li>
+<li>ONOS<br>ONOS(Open Network Operating System)控制器是由The Open Networking Lab使用Java及Apache实现发布的首款开源SDN网络操作系统，主要面向服务提供商和企业骨干网。<br>ONOS的设计宗旨是实现可靠性强、性能好、灵活度高的SDN控制器。</li>
+<li>OpenDaylight<br>Open Daylight是一个Linux基金合作项目，该项目以开源社区为主导，使用ava语言实现开源框架，旨在推动创新实施以及软件定义网络透明化。<br>面对SDN型网络，OpenDaylight作为项目核心，拥有一套模块化、可插拔且极为灵活的控制器，还包含一套模块合集，能够执行需要快速完成的网络任务。<br>OpenDaylight控制器的命名以化学元素为名，最初的产品是Hydrogen（氢），当前已经发布了第八个版本Oxygen（氧），并且实现了OpenDaylight-与NFV开放平台OPNFV(pen Platform for NFV)、开源云平台OpenStacki和开放网络自动化平台ONAP(Open Network Automation Platform)同步。</li>
+</ol>
+<h2 id="OpenFlow交换机"><a href="#OpenFlow交换机" class="headerlink" title="OpenFlow交换机"></a>OpenFlow交换机</h2><p>OpenFlow交换机是整个OpenFlow网络的核心部件，主要负责数据层的转发。OpenFlow交换机可以是物理的交换机/路由器，也可以是虚拟化的交换机/路由器。<br>按照对DpenFlow的支持程度，OpenFlow交换机可以分为两类：</p>
+<ul>
+<li>OpenFlow专用交换机<br>一个标准的DpenFlow设备，仅支持DpenFlow转发。他不支持现有的商用交换机上的正常处理流程，所有经过该交换机的数据都按照OpenFlow的模式进行转发。</li>
+<li>OpenFlow兼容型交换机<br>既支持OpenFlow转发，也支持正常二三层转发。这是在商业交换机的基础上添加流表、安全通道和OpenFlow协议来获得了OpenFlow特性的交换机。<br>OpenFlow交换机在实际转发过程中，依赖于流表(FlowTable)。流表是OpenFlow交换机进行数据转发的策略表项集合，指示交换机如何处理流量，所有进入交换机的报文都按照流表进行转发。流表本身的生成、维护、下发完全由控制器来实现。</li>
+</ul>
+<h2 id="OpenFlow安全通道"><a href="#OpenFlow安全通道" class="headerlink" title="OpenFlow安全通道"></a>OpenFlow安全通道</h2><p>安全通道就是连接DpenFlow交换机与控制器的信道，负责在OpenFlow交换机和控制器之间建立安全链接。控制器通过这个通道来控制和管理交换机，同时接收来自交换机的反馈。<br>通过OpenFlow安全通道的信息交互必须按照DpenFlowi协议规定的格式来执行，通常采用TLS(Transport Layer Security)加密，在一些OpenFlow版本中(1.1及以上)，有时也会通过TCP明文来实现。<br>通道中传输的DpenFlowi消息类型包括以下三种：</p>
+<ul>
+<li>Controller-to-Switch消息：由控制器发出、OpenFlow交换机接收并处理的消息，主要用来管理或获取OpenFlow交换机状态。</li>
+<li>Asynchronousi消息：由OpenFlow?交换机发给控制器，用来将网络事件或者交换机状态变化更新到控制器。</li>
+<li>Symmetric消息：可由OpenFlow交换机发出也可由控制器发出，也不必通过请求建立，主要用来建立连接、检测对方是否在线等。</li>
+</ul>
+<h2 id="流表的组成"><a href="#流表的组成" class="headerlink" title="流表的组成"></a>流表的组成</h2><ul>
+<li>Match fields</li>
+<li>Action</li>
+<li>计数器</li>
+</ul>
+<h1 id="OpenStack"><a href="#OpenStack" class="headerlink" title="OpenStack"></a><a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/OpenStack.html">OpenStack</a></h1><p>OpenStack是一个云平台管理的项目，它不是一个软件，它是由几个主要的组件组合起来，为公有云、私有云和混合云的建设与管理提供软件的开源项目。<br>Openstack项目的首要任务是简化云的部署过程并为其带来良好的可扩展性。<br>OpenStack系统或其演变版本目前被广泛应用在各行各业，包括自建私有云、公共云、租赁私有云及混合云，用户包括思科、英特尔、IBM、华为、希捷等。<br>OpenStack 支持 KVM、Xen、Lvc、Docker等虚拟机软件或容器。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>OpenStack的主要目标是管理数据中心的资源，简化资源分配。它管理三部分资源，分别是：</p>
+<ul>
+<li>计算资源<br>OpenStack可以规划并管理大量虚拟机，从而允许企业或服务提供商按需提供计算资源；<br>开发者可以通过API访问计算资源从而创建云应用，管理员与用户则可以通过web访问这些资源。</li>
+<li>存储资源<br>OpenStack可以为云服务或云应用提供所需的对象及块存储资源，OpenStack可以根据用户需要提供可配置的对象存储或块存储功能。</li>
+<li>网络资源<br>如今的数据中心存在大量的配置工作，如服务器、网络设备、存储设备、安全设备均需要配置，而它们还将被划分成更多的虚拟设备或虚拟网络。<br>这会导致 IP 地址的数量、路由配置、安全规则将爆炸式增长；传统的网络管理技术无法真正的可高扩展、高自动化地管理下一代网络。<br>因而OpenStack 提供了插件式、可扩展、API 驱动型的网络及IP管理功能。</li>
+</ul>
+<h2 id="OpenStack的典型架构和功能映射"><a href="#OpenStack的典型架构和功能映射" class="headerlink" title="OpenStack的典型架构和功能映射"></a>OpenStack的典型架构和功能映射</h2><ul>
+<li>表示层<br>负责与用户交互，主要包含一些图形化界面的web门户网站（用于提供给非开发人员进行界面操作），同时该部分还提供了供开发人员进行二次开发的API接口。<br>该部分还包括一些更高级的特性，例如：负载均衡、控制台代理安全和命名服务。</li>
+<li>逻辑层<br>提供云服务的智能控制功能，如：orchestration（负责任务的工作流管理）、scheduling（任务到资源的调度管理）、policy（配额等服务）、image registry（镜像实例的元数据管理）和logging（事件计费管理）。</li>
+<li>资源层<br>包含计算、网络和存储等物理资源。</li>
+</ul>
+<h2 id="OpenStack的核心项目"><a href="#OpenStack的核心项目" class="headerlink" title="OpenStack的核心项目"></a>OpenStack的核心项目</h2><ul>
+<li>Keystone<br>Keystone是OpenStack的认证服务，Keystone为所有的OpenStack组件提供认证和访问策略服务，它依赖自身REST系统进行工作，主要对Swift、Glance、Nova等进行认证与授权，它对动作消息中的来源者进行合法性鉴定。<br>Keystone采用两种授权方式，一种基于用户名/密码，另一种基于令牌（Token）。<br>除此之外，Keystone提供以下三种服务：<ul>
+<li>令牌服务：令牌中含有授权用户或群组的授权信息，授权给合法用户或群组。</li>
+<li>目录服务：目录中含有合法用户或群组的可用服务列表。</li>
+<li>策略服务：利用Keystone具体指定用户或群组的某些访问权限。</li>
+</ul>
+</li>
+<li>Nova<br>Nova是一套控制器，用于为单个用户或使用群组管理虚拟机实例的整个生命周期，根据用户需求来提供虚拟服务，Nova负责管理整个云的计算资源、网络资源、授权及测度。<br>虽然Nova本身并不提供任何虚拟能力，但是它将使用libvirt API与虚拟机的宿主机进行交互。<br>Nova通过Web服务API来对外提供处理接口。</li>
+<li>Glance<br>Glance负责OpenStack的镜像服务，Glance是一套虚拟机镜像发现、注册、检索系统，它提供虚拟机镜像的存储，查询和检索功能，为nova进行服务，依赖于存储服务和数据库服务。</li>
+<li>Swift<br>Swift为OpenStack提供了一种分布式、持续虚拟对象存储。Swift具有跨节点的存储能力。<br>Swift组件有冗余和失效备援管理功能，也能够处理归档和媒体流，特别是对大数据和大容量的测度非常高效。</li>
+<li>Cinder<br>Cinder是OpenStack的块存储服务组件，它管理所有块存储设备，为VM服务。</li>
+<li>Neutorn<br>Neutorn为OpenStack提供虚拟的网络功能，为每个不同的租户建立独立的网络环境。</li>
+<li>Horizon<br>Horizon是一个用以管理、控制OpenStack服务的Web控制面板。用户可以通过这个界面对OpenStack状态进行查看和管理。</li>
+</ul>
+<h1 id="图论基础"><a href="#图论基础" class="headerlink" title="图论基础"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Richard-2006/p/13920150.html">图论基础</a></h1><h1 id="异构网络融合"><a href="#异构网络融合" class="headerlink" title="异构网络融合"></a>异构网络融合</h1><p>异构网络是一种混合型网络，网络有不同厂商的设备和系统组成，支持不同的协议和技术，能够面向不同的的应用场景和用户。<br>异构网络融合，可以根据用户的偏好、业务QoS和网络状态等方面进行中和决策，保证用户连接到最好的网络，提高用户体验。</p>
+<ul>
+<li>切换技术<ul>
+<li>水平切换（HHO）：同一网络类型内进行切换</li>
+<li>垂直切换（VHO）：不同网络内进行切换</li>
+</ul>
+</li>
+<li>切换策略因素<ul>
+<li>用户偏好</li>
+<li>QoS</li>
+<li>网络状况</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h2 id="异构网络架构"><a href="#异构网络架构" class="headerlink" title="异构网络架构"></a>异构网络架构</h2><h3 id="IEEE-802-21-MIH媒质独立切换协议"><a href="#IEEE-802-21-MIH媒质独立切换协议" class="headerlink" title="IEEE 802.21 MIH媒质独立切换协议"></a>IEEE 802.21 MIH媒质独立切换协议</h3><blockquote>
+<p>目的是实现用户终端在同类型网络间及不同类型网络之间的无缝接入和切换，实现独立于异构网络的接入和切换。</p>
+</blockquote>
+<ul>
+<li><p>协议框架</p>
+<ul>
+<li><strong>MIH用户</strong>（MIH User，MIHU）：是一个应用层的实体，它可以使用MIH服务来优化高层服务，如切换、网络选择、漫游等。</li>
+<li><strong>MIH功能</strong>（MIH Function，MIHF）：是一个协议层的实体，它提供了一组MIH服务和事件，以及一个MIH协议，用于在不同的MIHF之间交换信息。</li>
+<li><strong>MIH链接</strong>（MIH Link，MIHL）：是一个物理层或数据链路层的实体，它可以与MIHF交互，提供链接相关的信息和操作。<blockquote>
+<p>MIH用户和MIH功能之间的交互是通过MIH协议来实现的，MIH协议是一种基于IP的传输协议，它定义了一组消息格式和规则，用于在不同的MIH功能之间传递信息和指令。<br>MIH协议支持三种传输方式：TCP、UDP和SCTP²。MIH用户可以通过MIH协议向MIH功能发出请求，查询或控制MIH链接的状态和参数，例如信号强度、速率、质量等。<br>MIH功能可以通过MIH协议向MIH用户发送事件通知，报告MIH链接的变化，例如链接断开、链接可用、链接手over等。MIH用户和MIH功能之间的交互可以在同一设备内部进行，也可以跨越不同的设备或网络进行。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>服务</p>
+<ul>
+<li><strong>信息服务</strong>（Information Service，IS）：这种服务可以让MIH用户查询和发现不同类型网络的信息，例如网络标识、链路特性、网络条件等。这些信息可以帮助MIH用户选择最合适的网络，以及预测网络的变化。信息服务可以分为两种类型：<strong>本地信息服务</strong>（Local Information Service，LIS）和<strong>远程信息服务</strong>（Remote Information Service，RIS）。本地信息服务是指MIH功能可以从本地的MIH链接获取信息，而远程信息服务是指MIH功能可以从远程的MIH功能或其他实体获取信息。例如，一个MIH用户可以通过本地信息服务查询当前连接的无线局域网（WLAN）的信号强度，或者通过远程信息服务查询附近可用的蜂窝网络（Cellular Network）的覆盖范围。</li>
+<li><strong>事件服务</strong>（Event Service，ES）：这种服务可以让MIH用户订阅和通知不同类型网络的事件，例如链路断开、链路可用、链路质量变化等。这些事件可以帮助MIH用户及时感知网络的状态，以及采取相应的行动。事件服务也可以分为两种类型：<strong>本地事件服务</strong>（Local Event Service，LES）和<strong>远程事件服务</strong>（Remote Event Service，RES）。本地事件服务是指MIH功能可以从本地的MIH链接接收事件通知，而远程事件服务是指MIH功能可以从远程的MIH功能或其他实体接收事件通知。例如，一个MIH用户可以通过本地事件服务订阅当前连接的WLAN的链路断开事件，或者通过远程事件服务订阅附近可用的蓝牙网络（Bluetooth Network）的链路可用事件。</li>
+<li><strong>命令服务</strong>（Command Service，CS）：这种服务可以让MIH用户控制和执行不同类型网络的操作，例如链路激活、链路去激活、链路参数设置等。这些操作可以帮助MIH用户主动调整网络的配置，以及实现网络之间的切换。命令服务也可以分为两种类型：<strong>本地命令服务</strong>（Local Command Service，LCS）和<strong>远程命令服务</strong>（Remote Command Service，RCS）。本地命令服务是指MIH功能可以向本地的MIH链接发送命令请求，并接收命令响应，而远程命令服务是指MIH功能可以向远程的MIH功能或其他实体发送命令请求，并接收命令响应。例如，一个MIH用户可以通过本地命令服务请求当前连接的WLAN去激活链路，或者通过远程命令服务请求附近可用的蓝牙网络激活链路。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3GPP：非-3GPP-网络接入架构"><a href="#3GPP：非-3GPP-网络接入架构" class="headerlink" title="3GPP：非 3GPP 网络接入架构"></a>3GPP：非 3GPP 网络接入架构</h3><p>非 3GPP 网络接入的方案主要有以下几种：</p>
+<ul>
+<li><p>独立非 3GPP 接入：这种方案是指 5G 终端只通过非 3GPP 标准的无线接入网络（例如 WLAN、WiMAX、LTE-U 等）连接到 5G 核心网，不涉及任何 3GPP 接入网络（例如 NR、LTE 等）。这种方案的优点是简单、灵活，可以利用现有的无线接入网络资源，提高网络覆盖范围和容量。这种方案的缺点是需要在非 3GPP 接入网络和 5G 核心网之间部署一个网关设备，即非 3GPP 互通功能（N3IWF），负责在两者之间建立安全的信令和数据通道。此外，这种方案也不能实现 3GPP 和非 3GPP 接入网络之间的无缝切换，可能影响用户体验。</p>
+</li>
+<li><p>混合非 3GPP 接入：这种方案是指 5G 终端同时通过非 3GPP 标准的无线接入网络和 3GPP 标准的无线接入网络连接到 5G 核心网，实现两者之间的协同和互补。这种方案的优点是可以提供更多样化的服务选择，同时也可以实现 3GPP 和非 3GPP 接入网络之间的无缝切换，提高用户体验。这种方案的缺点是需要在终端和核心网之间维护多个连接，增加了信令开销和资源消耗。此外，这种方案也需要解决不同接入网络之间的互操作性、安全性、质量保障等问题。</p>
+</li>
+<li><p>集成非 3GPP 接入：这种方案是指将非 3GPP 标准的无线接入网络作为 5G 新空口（NR）的一部分，与 NR 共享相同的物理层、媒体访问控制层和无线资源控制层，实现对 NR 的扩展和增强。这种方案的优点是可以充分利用 NR 的特性，如灵活的频谱使用、大规模天线阵列、低时延等，提高非 3GPP 接入网络的性能和效率。这种方案的缺点是需要对非 3GPP 接入网络进行较大的改造和升级，以适应 NR 的要求，增加了技术复杂度和成本。</p>
+</li>
+</ul>
+<h4 id="核心网侧分流架构（基于-S2a、S2b-和-S2c-接口的融合方案）"><a href="#核心网侧分流架构（基于-S2a、S2b-和-S2c-接口的融合方案）" class="headerlink" title="核心网侧分流架构（基于 S2a、S2b 和 S2c 接口的融合方案）"></a>核心网侧分流架构（基于 S2a、S2b 和 S2c 接口的融合方案）</h4><p>在 3GPP 系统中，实现不同类型的非 3GPP 接入网络（例如 WLAN，WiMAX 等）与 3GPP 核心网络（例如 EPC，IMS 等）之间的互通和协同。<br>根据非 3GPP 接入网络的信任程度和漫游情况，可以有不同的接口和功能方案。<br>一般来说，非 3GPP 接入网络需要通过一个非 3GPP 互通功能（N3IWF）或者一个演进型分组数据网关（ePDG）连接到 3GPP 核心网络，N3IWF 或 ePDG 分别通过 S2a、S2b 和 S2c 接口连接到控制面和用户面的功能实体。S2a、S2b 和 S2c 接口的主要作用和区别如下¹：</p>
+<ul>
+<li>S2a 接口：提供可信任的非 3GPP 接入网络（例如 TWAN）与 3GPP 核心网络之间的用户面和控制面的连接。S2a 接口需要在 TWAN 和 PDN GW 之间部署一个 N3IWF，N3IWF 负责中继用户面和控制面的信令和数据包，并支持移动性管理和切换。</li>
+<li>S2b 接口：提供非可信任的非 3GPP 接入网络（例如公共 WLAN）与 3GPP 核心网络之间的用户面和控制面的连接。S2b 接口需要在 WLAN 和 PDN GW 之间部署一个 ePDG，ePDG 负责与 UE 建立 IPSec 隧道，以保证数据的安全传输，并中继用户面和控制面的信令和数据包，并支持移动性管理和切换。</li>
+<li>S2c 接口：提供 UE 和 3GPP 核心网络之间的用户面和控制面的连接。S2c 接口可以在可信任或非可信任的非 3GPP 接入网络或者 3GPP 接入网络上实现。S2c 接口需要 UE 支持 DSMIPv6 协议，以实现 UE 和 PDN GW 或 PDG 之间的 DSMIP 隧道连接，并支持移动性管理和切换。</li>
+</ul>
+<h4 id="无线侧分流方案"><a href="#无线侧分流方案" class="headerlink" title="无线侧分流方案"></a>无线侧分流方案</h4><ul>
+<li><p>LTE-WLAN无线接入聚合（LWA）：</p>
+<p>  这种方案是指 5G 终端可以同时通过 LTE 和 WLAN 接入网络连接到 5G 核心网，实现两者之间的数据平面聚合。</p>
+<p>  LWA 通过在 LTE 基站和 WLAN 接入点之间建立 Xw 接口，将 LTE 数据有效载荷分离，一部分流量通过 WLAN 传输，另一部分通过 LTE 传输，从而提高 LTE 服务的性能。</p>
+<p>  LWA 需要在终端和核心网之间维护一个 PDU 会话，并在切换时保持会话的一致性。</p>
+<p>  LWA 的优点是可以利用现有的 WLAN 接入点资源，提高网络覆盖范围和容量，同时也可以实现 LTE 和 WLAN 接入网络之间的无缝切换，提高用户体验。</p>
+<p>  LWA 的缺点是需要在 LTE 基站和 WLAN 接入点之间部署额外的硬件和软件，增加了网络复杂度和成本。</p>
+</li>
+<li><p>LTE-WLAN无线控制平面聚合（LWIP）：</p>
+<p>  这种方案是指 5G 终端可以同时通过 LTE 和 WLAN 接入网络连接到 5G 核心网，实现两者之间的控制平面聚合。</p>
+<p>  LWIP 通过在 LTE 基站和 WLAN 接入点之间建立 Xw 接口，将 LTE 控制信令分离，一部分信令通过 WLAN 传输，另一部分通过 LTE 传输，从而提高 LTE 服务的可靠性。</p>
+<p>  LWIP 需要在终端和核心网之间维护一个 PDU 会话，并在切换时保持会话的一致性。</p>
+<p>  LWIP 的优点是可以利用现有的 WLAN 接入点资源，提高网络覆盖范围和容量，同时也可以实现 LTE 和 WLAN 接入网络之间的无缝切换，提高用户体验。</p>
+<p>  LWIP 的缺点是需要在 LTE 基站和 WLAN 接入点之间部署额外的硬件和软件，增加了网络复杂度和成本。</p>
+</li>
+</ul>
+<blockquote>
+<p>LWA 是一种数据平面聚合方案，即 5G 终端可以同时通过 LTE 和 WLAN 接入网络传输数据，实现两者之间的数据流量分配和负载均衡。LWIP 是一种控制平面聚合方案，即 5G 终端可以同时通过 LTE 和 WLAN 接入网络传输控制信令，实现两者之间的信令可靠性和鲁棒性。</p>
+</blockquote>
+<blockquote>
+<p>LWA 和 LWIP 都需要在 LTE 基站和 WLAN 接入点之间建立 Xw 接口，但是 Xw 接口的功能不同。LWA 的 Xw 接口主要用于将 LTE 数据有效载荷分离，一部分流量通过 WLAN 传输，另一部分通过 LTE 传输。LWIP 的 Xw 接口主要用于将 LTE 控制信令分离，一部分信令通过 WLAN 传输，另一部分通过 LTE 传输。</p>
+</blockquote>
+<blockquote>
+<p>LWA 和 LWIP 都需要在终端和核心网之间维护一个 PDU 会话，并在切换时保持会话的一致性。但是 LWA 和 LWIP 的 PDU 会话的类型不同。LWA 的 PDU 会话是一种单路径类型，即只有一个数据承载网络层（DN）地址，而 LWIP 的 PDU 会话是一种多路径类型，即有两个或多个 DN 地址。</p>
+</blockquote>
+<ul>
+<li><p>LTE-WLAN无线双连接（LWDC）：</p>
+<p>  这种方案是指 5G 终端可以同时通过 LTE 和 WLAN 接入网络连接到 5G 核心网，实现两者之间的双连接。</p>
+<p>  LWDC 不需要在 LTE 基站和 WLAN 接入点之间建立任何接口，而是在终端上实现两个独立的 PDU 会话，一个通过 LTE 连接到核心网，一个通过 WLAN 连接到互联网。</p>
+<p>  LWDC 的优点是可以利用现有的 WLAN 接入点资源，提高网络覆盖范围和容量，同时也可以实现 LTE 和 WLAN 接入网络之间的灵活切换，提高用户体验。</p>
+<p>  LWDC 的缺点是需要在终端上实现复杂的会话管理逻辑，增加了终端的功耗和成本。</p>
+</li>
+<li><p>工作方式	</p>
+<ul>
+<li><p>LWA：<br>  当 5G 终端通过 LTE 接入网络建立 PDU 会话后，可以通过 Xw 接口向 LTE 基站请求开启 LWA 功能。<br>  如果 LTE 基站和 WLAN 接入点之间的 Xw 接口可用，LTE 基站会向 5G 终端发送 LWA 激活指示，告知其 WLAN 接入点的信息。<br>  5G 终端根据这些信息，通过 WLAN 接入网络建立 LWA 数据通道，并向 LTE 基站发送 LWA 激活确认。<br>  此时，LWA 功能开启成功，LTE 基站可以将 LTE 数据有效载荷分离，一部分流量通过 WLAN 传输，另一部分通过 LTE 传输。<br>  当 LWA 功能不再需要时，LTE 基站或 5G 终端可以通过 Xw 接口发送 LWA 去激活指示，关闭 LWA 功能。</p>
+</li>
+<li><p>LWIP：当 5G 终端通过 LTE 接入网络建立 PDU 会话后，可以通过 Xw 接口向 LTE 基站请求开启 LWIP 功能。<br>  如果 LTE 基站和 WLAN 接入点之间的 Xw 接口可用，LTE 基站会向 5G 终端发送 LWIP 激活指示，告知其 WLAN 接入点的信息。<br>  5G 终端根据这些信息，通过 WLAN 接入网络建立 LWIP 控制通道，并向 LTE 基站发送 LWIP 激活确认。<br>  此时，LWIP 功能开启成功，LTE 基站可以将 LTE 控制信令分离，一部分信令通过 WLAN 传输，另一部分通过 LTE 传输。</p>
+</li>
+<li><p>当 LWIP 功能不再需要时，LTE 基站或 5G 终端可以通过 Xw 接口发送 LWIP 去激活指示，关闭 LWIP 功能。2</p>
+</li>
+<li><p>LWDC：当 5G 终端通过 LTE 接入网络建立 PDU 会话后，可以同时通过 WLAN 接入网络建立另一个 PDU 会话。<br>  此时，5G 终端有两个独立的 PDU 会话，一个通过 LTE 连接到核心网，一个通过 WLAN 连接到互联网。<br>  5G 终端可以根据自己的服务需求和网络状况，在两个 PDU 会话之间进行切换或同时使用。当两个 PDU 会话不再需要时，5G 终端可以分别释放它们。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Sparrow You</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://sparrowyou.github.io/2023/09/28/edge-computing/">http://sparrowyou.github.io/2023/09/28/edge-computing/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Sparrow You</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%80%9A%E4%BF%A1/">
+                                    <span class="chip bg-color">通信</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/">
+                                    <span class="chip bg-color">边缘计算</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2023/09/28/game-theory/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="博弈论">
+                        
+                        <span class="card-title">博弈论</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
+                                    通信
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%80%9A%E4%BF%A1/">
+                        <span class="chip bg-color">通信</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/09/28/git-study-note/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="git使用">
+                        
+                        <span class="card-title">git使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Sparrow You
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/code/">
+                        <span class="chip bg-color">code</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">Sparrow You</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "9";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-cn';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sparrowyou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3259992548@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3259992548" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3259992548" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

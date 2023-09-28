@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Tag: 嵌入式, Sparrow">
+    <meta name="keywords" content="Tags, Sparrow">
     <meta name="description" content="Sparrow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Tag: 嵌入式 | Sparrow</title>
+    <title>Tags | Sparrow</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -436,7 +436,7 @@
                 
                 <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" title="嵌入式: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             data-tagname="嵌入式" style="background-color: #FEF9E7;">嵌入式
                         <span class="tag-length">1</span>
                     </span>
@@ -457,43 +457,32 @@
 </div>
 
     
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="嵌入式" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2023/09/28/stm32-study-note/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="STM32学习">
-                            
-                            <span class="card-title">STM32学习</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Sparrow You
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"通信","weight":4,"link":"/tags/通信/"},{"text":"5G","weight":1,"link":"/tags/5G/"},{"text":"code","weight":2,"link":"/tags/code/"},{"text":"边缘计算","weight":1,"link":"/tags/边缘计算/"},{"text":"嵌入式","weight":1,"link":"/tags/嵌入式/"},{"text":"网络协议","weight":1,"link":"/tags/网络协议/"}], {
+        autoResize: true
+    });
+</script>
+
+    
+
 </main>
-
-
 
 
     <footer class="page-footer bg-color">
