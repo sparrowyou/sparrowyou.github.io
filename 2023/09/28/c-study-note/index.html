@@ -1044,18 +1044,29 @@ int main()
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="enum-枚举"><a href="#enum-枚举" class="headerlink" title="enum(枚举)"></a>enum(枚举)</h3><p>枚举类型通常用于为程序中的一组相关的常量取名字，以便于程序的可读性和维护性。<br>定义一个枚举类型，需要使用 enum 关键字，后面跟着枚举类型的名称，以及用大括号 {} 括起来的一组枚举常量。<br>每个枚举常量可以用一个标识符来表示，也可以为它们指定一个整数值，如果没有指定，那么默认从 0 开始递增。</p>
-<p>枚举语法定义格式为：<br><code>enum　枚举名　{枚举元素1,枚举元素2,……};</code></p>
-<h2 id="枚举变量的定义-1-先定义枚举类型，再定义枚举变量-2-定义枚举类型的同时定义枚举变量-3-省略枚举名称，直接定义枚举变量"><a href="#枚举变量的定义-1-先定义枚举类型，再定义枚举变量-2-定义枚举类型的同时定义枚举变量-3-省略枚举名称，直接定义枚举变量" class="headerlink" title="枚举变量的定义:1. 先定义枚举类型，再定义枚举变量    2. 定义枚举类型的同时定义枚举变量   3. 省略枚举名称，直接定义枚举变量   "></a>枚举变量的定义:<br>1. 先定义枚举类型，再定义枚举变量<br>    <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span> <span class="token class-name">DAY</span>
+<ul>
+<li><p>枚举语法定义格式为：<br><code>enum　枚举名　{枚举元素1,枚举元素2,……};</code></p>
+</li>
+<li><p>枚举变量的定义:</p>
+<ol>
+<li>先定义枚举类型，再定义枚举变量 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span> <span class="token class-name">DAY</span>
 <span class="token punctuation">{</span>
       MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">enum</span> <span class="token class-name">DAY</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>2. 定义枚举类型的同时定义枚举变量<br>   <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span> <span class="token class-name">DAY</span>
+<span class="token keyword">enum</span> <span class="token class-name">DAY</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>定义枚举类型的同时定义枚举变量<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span> <span class="token class-name">DAY</span>
 <span class="token punctuation">{</span>
       MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><br>3. 省略枚举名称，直接定义枚举变量<br>   <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span>
+<span class="token punctuation">}</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>省略枚举名称，直接定义枚举变量<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span>
 <span class="token punctuation">{</span>
       MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></h2><h2 id="Day3"><a href="#Day3" class="headerlink" title="Day3"></a>Day3</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>在 C 语言中，字符串实际上是使用空字符 \0 结尾的一维字符数组。<br>由于在数组的末尾存储了空字符 \0，所以字符数组的大小比字符串的字符数多一个。<br><strong>字符串声明：</strong><br><code>char str[] = {'h','e','l','l','o',' 'w','o','r','l','d','!'}</code></p>
+<span class="token punctuation">}</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="Day3"><a href="#Day3" class="headerlink" title="Day3"></a>Day3</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>在 C 语言中，字符串实际上是使用空字符 \0 结尾的一维字符数组。<br>由于在数组的末尾存储了空字符 \0，所以字符数组的大小比字符串的字符数多一个。<br><strong>字符串声明：</strong><br><code>char str[] = {'h','e','l','l','o',' 'w','o','r','l','d','!'}</code></p>
 <blockquote>
 <p>s声明时不需要把 null 字符放在字符串常量的末尾。C 编译器会在初始化数组时，自动把 \0 放在字符串的末尾。</p>
 </blockquote>
