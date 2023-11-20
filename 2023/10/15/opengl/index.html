@@ -595,7 +595,7 @@ build: 生成文件存放路径">
 <span class="token function">glBindBuffer</span><span class="token punctuation">(</span>GL_ARRAY_BUFFER<span class="token punctuation">,</span> VBO<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>将顶点数据上传到VBO：</p>
-<p> <code>glBufferData</code>是OpenGL用于将数据传递到指定缓冲区的函数。这个函数允许您将数据从一个数组或内存块复制到一个缓冲区对象中。<br> 以下是<code>glBufferData</code>的基本用法：</p>
+<p> <code>glBufferData</code>是OpenGL用于将数据传递到指定缓冲区的函数。这个函数允许将数据从一个数组或内存块复制到一个缓冲区对象中。<br> 以下是<code>glBufferData</code>的基本用法：</p>
  <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">glBufferData</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> size<span class="token punctuation">,</span> data<span class="token punctuation">,</span> usage<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p> 参数说明：</p>
@@ -874,7 +874,7 @@ GLfloat vertices<span class="token punctuation">[</span><span class="token punct
 <li><p>最后，函数返回一个 <code>ShaderProgramSource</code> 结构体，其中包含了解析的顶点着色器和片段着色器的源代码。</p>
 </li>
 </ol>
-<h3 id="索引缓冲区"><a href="#索引缓冲区" class="headerlink" title="索引缓冲区"></a>索引缓冲区</h3><p>索引缓冲区（Index Buffer）是一种用于优化图形渲染的技术，特别是在处理大型三维模型时非常有用。索引缓冲区允许您以一种更有效的方式定义和渲染顶点数据，减少冗余数据的存储和传输，以提高性能。</p>
+<h3 id="索引缓冲区"><a href="#索引缓冲区" class="headerlink" title="索引缓冲区"></a>索引缓冲区</h3><p>索引缓冲区（Index Buffer）是一种用于优化图形渲染的技术，特别是在处理大型三维模型时非常有用。索引缓冲区允许以一种更有效的方式定义和渲染顶点数据，减少冗余数据的存储和传输，以提高性能。</p>
 <p>索引缓冲区的核心思想是将顶点数据和索引数据分开存储。通常有一个包含所有唯一顶点数据的顶点缓冲区，然后另一个缓冲区包含索引，这些索引指示如何组合顶点以构成几何图元（例如，三角形）。</p>
 <p>以下是使用索引缓冲区的一般步骤：</p>
 <ol>
@@ -882,7 +882,7 @@ GLfloat vertices<span class="token punctuation">[</span><span class="token punct
 </li>
 <li><p><strong>创建索引缓冲区</strong>：然后，创建一个索引缓冲区（Index Buffer Object，IBO），其中包含表示图元的索引数据。这些索引通常是指向顶点缓冲区中的数据的引用。</p>
 </li>
-<li><p><strong>绘制对象</strong>：在渲染循环中，您绑定顶点缓冲区和索引缓冲区，然后调用绘制命令以绘制几何图元。OpenGL将使用索引缓冲区中的索引来确定要绘制的顶点。</p>
+<li><p><strong>绘制对象</strong>：在渲染循环中，绑定顶点缓冲区和索引缓冲区，然后调用绘制命令以绘制几何图元。OpenGL将使用索引缓冲区中的索引来确定要绘制的顶点。</p>
 </li>
 </ol>
 <p>优点和用途：</p>
@@ -891,7 +891,7 @@ GLfloat vertices<span class="token punctuation">[</span><span class="token punct
 </li>
 <li><p><strong>提高性能</strong>：减少冗余数据传输和处理，提高渲染性能，特别是在大型三维模型的情况下。</p>
 </li>
-<li><p><strong>支持复杂的模型</strong>：索引缓冲区非常有用，当您要渲染的模型包含大量重复顶点数据，例如一个立方体或球体。</p>
+<li><p><strong>支持复杂的模型</strong>：索引缓冲区非常有用，当要渲染的模型包含大量重复顶点数据，例如一个立方体或球体。</p>
 </li>
 </ul>
 <p>使用索引缓冲区时，需要小心确保顶点数据和索引数据的一致性，以及正确绑定和绘制命令的使用。此外，不同的渲染API可能有不同的方式来创建和使用索引缓冲区，但核心思想是相似的。</p>
@@ -952,7 +952,7 @@ GLfloat vertices<span class="token punctuation">[</span><span class="token punct
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">GLint location <span class="token operator">=</span> <span class="token function">glGetUniformLocation</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> <span class="token string">"variable_name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 glUniform<span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 使用适当的 glUniform 函数将数据传递给统一变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>这将允许您在渲染过程中将值传递给着色器。</p>
+<p>这将允许在渲染过程中将值传递给着色器。</p>
 </li>
 </ol>
 <p><strong>示例：</strong></p>
@@ -968,6 +968,17 @@ glUniform<span class="token operator">*</span><span class="token punctuation">(<
 <blockquote>
 <p><code>uniform</code> 设置须在渲染之前</p>
 </blockquote>
+<p><strong>统一变量出错原因：</strong></p>
+<ol>
+<li><p><strong>Uniform变量名拼写错误</strong>：确保Uniform变量的名称与着色器代码中的名称完全匹配，包括大小写。在的着色器代码中，Uniform变量名称应该是 “u_Color”，请确保在代码中也是这样。</p>
+</li>
+<li><p><strong>Uniform变量没有被使用</strong>：如果在着色器中声明了一个Uniform变量但没有在代码中使用它，编译器可能会将其优化掉。请确保Uniform变量在着色器代码中实际使用，以便它在着色器程序中存在。</p>
+</li>
+<li><p><strong>着色器链接失败</strong>：如果着色器程序的链接失败，Uniform变量可能不会被成功绑定。确保着色器程序的链接没有问题。可以检查着色器程序的链接状态，以确保链接成功。</p>
+</li>
+<li><p><strong>Uniform变量在错误的着色器阶段</strong>：Uniform变量的存在和位置是着色器阶段相关的。请确保在正确的着色器阶段（顶点着色器或片段着色器）中声明了Uniform变量，并在正确的阶段中尝试设置它。</p>
+</li>
+</ol>
 <h3 id="顶点数组（Vertex-Array）"><a href="#顶点数组（Vertex-Array）" class="headerlink" title="顶点数组（Vertex Array）"></a>顶点数组（Vertex Array）</h3><p>OpenGL中的顶点数组是一种用于存储和组织顶点数据的数据结构。顶点数组通常与顶点缓冲区对象（Vertex Buffer Object，VBO）一起使用，用于描述三维对象的几何信息，如位置、颜色、法线、纹理坐标等。</p>
 <p><strong>顶点数组对象（Vertex Array Object，VAO）：</strong><br>    VAO是用于存储和管理顶点属性指针的OpenGL对象。它可以包括多个VBO和IBO（索引缓冲对象）。VAO的目的是封装顶点属性指针的状态，以便轻松地切换不同的顶点数据布局。</p>
 <blockquote>
@@ -1356,6 +1367,519 @@ public:
 <span class="token punctuation">{</span>
     <span class="token function">glBindBuffer</span><span class="token punctuation">(</span>GL_ELEMENT_ARRAY_BUFFER<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="抽象顶点数组和布局成类"><a href="#抽象顶点数组和布局成类" class="headerlink" title="抽象顶点数组和布局成类"></a>抽象顶点数组和布局成类</h3><p><strong>布局头文件：</strong></p>
+<pre class="line-numbers language-h" data-language="h"><code class="language-h">#pragma once
+
+#include &lt;vector&gt;
+#include "GL/glew.h"
+#include &lt;assert.h&gt;
+
+struct VertexBufferElement
+{
+    unsigned int count;
+    unsigned int type;
+    unsigned char normalized;
+
+    static unsigned int GetSizeofType(unsigned int type)
+    {
+        switch (type)
+        {
+            case GL_FLOAT:                      return 4;
+            case GL_UNSIGNED_INT:       return 4;
+            case GL_UNSIGNED_BYTE:     return 1;
+        }
+        // assert(false);   // ？ vscode+mingw此处断言任然生效
+        return 0;
+    }
+};
+
+class VertexBufferLayout
+{
+private:
+    std::vector&lt;VertexBufferElement&gt; m_Elements;
+    unsigned int m_Stride;
+public:
+    VertexBufferLayout()
+        : m_Stride(0) {}
+
+    // TODO: 解决在GCC中报错
+    /* vs中有效，但vscode+mingw时会报错 */
+    /*
+    template&lt;typename T&gt;
+    void Push(unsigned int count)
+    {
+        static_assert(false, "Unsupported type in VertexBufferLayout::Push");
+    }
+
+    template&lt;&gt;
+    void Push&lt;float&gt;(unsigned int count)
+    {
+        m_Elements.push_back({ count, GL_FLOAT, GL_FALSE });
+        m_Stride += count * VertexBufferElement::GetSizeofType(GL_FLOAT);
+    }
+
+    template&lt;&gt;
+    void Push&lt;unsigned int&gt;(unsigned int count)
+    {
+        m_Elements.push_back({ count, GL_UNSIGNED_INT, GL_FALSE });
+        m_Stride += count * VertexBufferElement::GetSizeofType(GL_UNSIGNED_INT);
+    }
+
+    template&lt;&gt;
+    void Push&lt;unsigned char&gt;(unsigned int count)
+    {
+        m_Elements.push_back({ count, GL_UNSIGNED_BYTE, GL_TRUE });
+        m_Stride += count * VertexBufferElement::GetSizeofType(GL_UNSIGNED_BYTE);
+    }
+    */
+
+    void PushFloat(unsigned int count)
+    {
+        m_Elements.push_back({ count, GL_FLOAT, GL_FALSE });
+        m_Stride += count * VertexBufferElement::GetSizeofType(GL_FLOAT);
+    }
+
+    void PushUInt(unsigned int count)
+    {
+        m_Elements.push_back({ count, GL_UNSIGNED_INT, GL_FALSE });
+        m_Stride += count * VertexBufferElement::GetSizeofType(GL_UNSIGNED_INT);
+    }
+
+    void PushUChar(unsigned int count)
+    {
+        m_Elements.push_back({ count, GL_UNSIGNED_BYTE, GL_TRUE });
+        m_Stride += count * VertexBufferElement::GetSizeofType(GL_UNSIGNED_BYTE);
+    }
+
+    inline const std::vector&lt;VertexBufferElement&gt; GetElements() const { return m_Elements; }
+    inline unsigned int GetStride() const { return m_Stride; }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>顶点数组头文件：</strong></p>
+<pre class="line-numbers language-h" data-language="h"><code class="language-h">#pragma once
+
+#include "VertexBuffer.h"
+#include "VertexBufferLayout.h"
+
+class VertexArray
+{
+private:
+    unsigned int m_RendererID;
+public:
+    VertexArray();
+    ~VertexArray();
+
+    void AddBuffer(const VertexBuffer&amp; vb, const VertexBufferLayout&amp; layout);
+
+    void Bind() const;
+    void Unbind() const;
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>顶点数组cpp文件：</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"VertexArray.h"</span></span>
+
+<span class="token class-name">VertexArray</span><span class="token double-colon punctuation">::</span><span class="token function">VertexArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glGenVertexArrays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">VertexArray</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">VertexArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glDeleteVertexArrays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">VertexArray</span><span class="token double-colon punctuation">::</span><span class="token function">AddBuffer</span><span class="token punctuation">(</span><span class="token keyword">const</span> VertexBuffer <span class="token operator">&amp;</span>vb<span class="token punctuation">,</span> <span class="token keyword">const</span> VertexBufferLayout <span class="token operator">&amp;</span>layout<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">Bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vb<span class="token punctuation">.</span><span class="token function">Bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">auto</span><span class="token operator">&amp;</span> elements <span class="token operator">=</span> layout<span class="token punctuation">.</span><span class="token function">GetElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> offset <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> elements<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token keyword">auto</span><span class="token operator">&amp;</span> element <span class="token operator">=</span> elements<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">glEnableVertexAttribArray</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">glVertexAttribPointer</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> element<span class="token punctuation">.</span>count<span class="token punctuation">,</span> element<span class="token punctuation">.</span>type<span class="token punctuation">,</span> element<span class="token punctuation">.</span>normalized<span class="token punctuation">,</span> layout<span class="token punctuation">.</span><span class="token function">GetStride</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>intptr_t<span class="token punctuation">)</span>offset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        offset <span class="token operator">+=</span> element<span class="token punctuation">.</span>count <span class="token operator">*</span> <span class="token class-name">VertexBufferElement</span><span class="token double-colon punctuation">::</span><span class="token function">GetSizeofType</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">VertexArray</span><span class="token double-colon punctuation">::</span><span class="token function">Bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glBindVertexArray</span><span class="token punctuation">(</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">VertexArray</span><span class="token double-colon punctuation">::</span><span class="token function">Unbind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glBindVertexArray</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="将着色器抽象成类"><a href="#将着色器抽象成类" class="headerlink" title="将着色器抽象成类"></a>将着色器抽象成类</h3><p><strong>头文件：</strong></p>
+<pre class="line-numbers language-h" data-language="h"><code class="language-h">#pragma once
+
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+
+struct ShaderProgramSource
+{
+    std::string VertexSource;
+    std::string FragmentSource;
+};
+
+class Shader
+{
+private:
+    std::string m_Filepath;
+    unsigned int m_RendererID;
+    // catching for uniforms
+    std::unordered_map&lt;std::string, unsigned int&gt; m_UniformLocationCache;
+public:
+    Shader(const std::string&amp; filepath);
+    ~Shader();
+
+    void Bind() const;
+    void Unbind() const;
+
+    // Set uniforms
+    void SetUniform4f(const std::string&amp; name, float v1, float v2, float v3, float v4);
+private:
+    ShaderProgramSource ParseShader(const std::string&amp; filepath);
+    unsigned int CompileShader(unsigned int shader_type, const std::string&amp; source);
+    unsigned int CreateShader(const std::string&amp; vertexShader, const std::string&amp; fragmentShader);
+    unsigned int GetUniformLocation(const std::string&amp; name);
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>cpp文件：</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Shader.h"</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream&gt;</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Renderer.h"</span></span>
+
+<span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">Shader</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">&amp;</span> filepath<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token function">m_Filepath</span><span class="token punctuation">(</span>filepath<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">m_RendererID</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ShaderProgramSource source <span class="token operator">=</span> <span class="token function">ParseShader</span><span class="token punctuation">(</span>filepath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    m_RendererID <span class="token operator">=</span> <span class="token function">CreateShader</span><span class="token punctuation">(</span>source<span class="token punctuation">.</span>VertexSource<span class="token punctuation">,</span> source<span class="token punctuation">.</span>FragmentSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Shader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glDeleteProgram</span><span class="token punctuation">(</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+ShaderProgramSource <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">ParseShader</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">&amp;</span> filepath<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token double-colon punctuation">::</span>ifstream <span class="token function">stream</span><span class="token punctuation">(</span>filepath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">enum</span> <span class="token keyword">class</span> <span class="token class-name">ShaderType</span>
+    <span class="token punctuation">{</span>
+        NONE <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> VERTEX <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> FRAGMENT <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    std<span class="token double-colon punctuation">::</span>string line<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>stringstream ss<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    ShaderType type <span class="token operator">=</span> ShaderType<span class="token double-colon punctuation">::</span>NONE<span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">getline</span><span class="token punctuation">(</span>stream<span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">"#shader"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> std<span class="token double-colon punctuation">::</span>string<span class="token double-colon punctuation">::</span>npos<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">"vertex"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> std<span class="token double-colon punctuation">::</span>string<span class="token double-colon punctuation">::</span>npos<span class="token punctuation">)</span>
+                type <span class="token operator">=</span> ShaderType<span class="token double-colon punctuation">::</span>VERTEX<span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">"fragment"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> std<span class="token double-colon punctuation">::</span>string<span class="token double-colon punctuation">::</span>npos<span class="token punctuation">)</span>
+                type <span class="token operator">=</span> ShaderType<span class="token double-colon punctuation">::</span>FRAGMENT<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            ss<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>type<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> line <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>ss<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ss<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">CompileShader</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span> shader_type<span class="token punctuation">,</span> <span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">&amp;</span> source<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> shader_id <span class="token operator">=</span> <span class="token function">glCreateShader</span><span class="token punctuation">(</span>shader_type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> src <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glShaderSource</span><span class="token punctuation">(</span>shader_id<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>src<span class="token punctuation">,</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glCompileShader</span><span class="token punctuation">(</span>shader_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/* error handling */</span>
+    <span class="token keyword">int</span> result<span class="token punctuation">;</span>
+    <span class="token function">glGetShaderiv</span><span class="token punctuation">(</span>shader_id<span class="token punctuation">,</span> GL_COMPILE_STATUS<span class="token punctuation">,</span> <span class="token operator">&amp;</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">==</span> GL_FALSE<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> length<span class="token punctuation">;</span>
+        <span class="token function">glGetShaderiv</span><span class="token punctuation">(</span>shader_id<span class="token punctuation">,</span> GL_INFO_LOG_LENGTH<span class="token punctuation">,</span> <span class="token operator">&amp;</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">char</span><span class="token operator">*</span> message <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">alloca</span><span class="token punctuation">(</span>length <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">glGetShaderInfoLog</span><span class="token punctuation">(</span>shader_id<span class="token punctuation">,</span> length<span class="token punctuation">,</span> <span class="token operator">&amp;</span>length<span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Failed to compile"</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>shader_type <span class="token operator">==</span> GL_VERTEX_SHADER <span class="token operator">?</span> <span class="token string">"vertex"</span> <span class="token operator">:</span> <span class="token string">"fragment"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> message <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+        <span class="token function">glDeleteShader</span><span class="token punctuation">(</span>shader_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> shader_id<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">CreateShader</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">&amp;</span> vertexShader<span class="token punctuation">,</span> <span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">&amp;</span> fragmentShader<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> shaderProgram <span class="token operator">=</span> <span class="token function">glCreateProgram</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> vs <span class="token operator">=</span> <span class="token function">CompileShader</span><span class="token punctuation">(</span>GL_VERTEX_SHADER<span class="token punctuation">,</span> vertexShader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> fs <span class="token operator">=</span> <span class="token function">CompileShader</span><span class="token punctuation">(</span>GL_FRAGMENT_SHADER<span class="token punctuation">,</span> fragmentShader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">glAttachShader</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> vs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glAttachShader</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> fs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glLinkProgram</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">glDeleteShader</span><span class="token punctuation">(</span>vs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glDeleteShader</span><span class="token punctuation">(</span>fs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> shaderProgram<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">Bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glUseProgram</span><span class="token punctuation">(</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">Unbind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glUseProgram</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">SetUniform4f</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string <span class="token operator">&amp;</span>name<span class="token punctuation">,</span> <span class="token keyword">float</span> v1<span class="token punctuation">,</span> <span class="token keyword">float</span> v2<span class="token punctuation">,</span> <span class="token keyword">float</span> v3<span class="token punctuation">,</span> <span class="token keyword">float</span> v4<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glUniform4f</span><span class="token punctuation">(</span><span class="token function">GetUniformLocation</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">,</span> v3<span class="token punctuation">,</span> v4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token class-name">Shader</span><span class="token double-colon punctuation">::</span><span class="token function">GetUniformLocation</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string <span class="token operator">&amp;</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>m_UniformLocationCache<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">!=</span> m_UniformLocationCache<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> m_UniformLocationCache<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> location <span class="token operator">=</span> <span class="token function">glGetUniformLocation</span><span class="token punctuation">(</span>m_RendererID<span class="token punctuation">,</span> name<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>location <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Warning: uniform '"</span> <span class="token operator">&lt;&lt;</span> name <span class="token operator">&lt;&lt;</span> <span class="token string">" ' dosen't exist!"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    m_UniformLocationCache<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> location<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> location<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="纹理"><a href="#纹理" class="headerlink" title="纹理"></a>纹理</h2><p>在OpenGL中添加纹理通常涉及以下步骤：</p>
+<ol>
+<li><p><strong>加载纹理图像</strong>：首先，需要加载纹理图像文件。通常使用库如stb_image或SOIL（Simple OpenGL Image Library）来加载图像文件。这将为提供图像的像素数据。</p>
+</li>
+<li><p><strong>创建纹理对象</strong>：在OpenGL中，需要创建一个纹理对象来存储纹理数据。使用 <code>glGenTextures</code> 来生成一个纹理对象的ID。</p>
+</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">GLuint textureID<span class="token punctuation">;</span>
+<span class="token function">glGenTextures</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>textureID<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li><strong>绑定纹理对象</strong>：使用 <code>glBindTexture</code> 来绑定纹理对象，以便后续的操作将影响该纹理对象。</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> textureID<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="4">
+<li><strong>设置纹理参数</strong>：使用 <code>glTexParameteri</code> 来设置纹理参数，如缩小滤波、放大滤波、纹理坐标包裹模式等。这些参数会影响纹理在渲染中的采样行为。</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_MIN_FILTER<span class="token punctuation">,</span> GL_LINEAR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_MAG_FILTER<span class="token punctuation">,</span> GL_LINEAR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_WRAP_S<span class="token punctuation">,</span> GL_CLAMP_TO_EDGE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_WRAP_T<span class="token punctuation">,</span> GL_CLAMP_TO_EDGE<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="5">
+<li><strong>将图像数据上传到纹理对象</strong>：使用 <code>glTexImage2D</code> 来将图像数据上传到纹理对象。需要指定纹理目标（通常是 <code>GL_TEXTURE_2D</code>）、级别、内部像素格式、宽度、高度、边界、源格式和数据类型。</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">glTexImage2D</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> level<span class="token punctuation">,</span> internalformat<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> format<span class="token punctuation">,</span> type<span class="token punctuation">,</span> image_data<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以下是 <code>glTexImage2D</code> 函数的关键参数和用法：</p>
+<ul>
+<li><p><code>target</code>：指定纹理的类型，通常是 <code>GL_TEXTURE_2D</code> 表示二维纹理。也可以是其他类型，如立方体贴图等。</p>
+</li>
+<li><p><code>level</code>：指定纹理的细节级别，通常为0表示基本级别。用于创建多级细节纹理（MIP贴图）时，可以设置不同的级别。</p>
+</li>
+<li><p><code>internalformat</code>：指定纹理数据的内部格式，如 <code>GL_RGBA</code> 表示纹理包含红、绿、蓝和透明度通道。这与实际的纹理图像格式可以不同，OpenGL会根据此内部格式进行适当的转换。</p>
+</li>
+<li><p><code>width</code> 和 <code>height</code>：指定纹理的宽度和高度，以像素为单位。</p>
+</li>
+<li><p><code>border</code>：指定边界宽度，通常为0。</p>
+</li>
+<li><p><code>format</code>：指定纹理数据的格式，如 <code>GL_RGBA</code>。</p>
+</li>
+<li><p><code>type</code>：指定纹理数据的数据类型，如 <code>GL_UNSIGNED_BYTE</code> 表示数据是无符号字节。</p>
+</li>
+<li><p><code>data</code>：指定包含图像数据的指针。这是您加载的图像数据的指针。</p>
+</li>
+</ul>
+<p><code>glTexImage2D</code> 的主要作用是将图像数据从CPU内存上传到GPU，以便GPU能够在着色器中对其进行采样和处理。一旦数据被上传到纹理对象，就可以在着色器中使用纹理坐标对纹理进行采样，从而将其应用到渲染的几何体上。</p>
+<ol start="6">
+<li><strong>解除纹理对象绑定</strong>：最后，使用 <code>glBindTexture</code> 解除对纹理对象的绑定，以确保后续操作不会影响该纹理。</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以上是添加纹理的基本步骤。在实际应用中，可能需要考虑更多的细节，例如使用多个纹理、纹理过滤、MIP映射、多重渲染目标等。同时，还需要在着色器中使用纹理坐标来采样纹理，以便在渲染中应用纹理。</p>
+<p>实际使用时需要先激活纹理插槽并绑定纹理对象：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">glActiveTexture</span><span class="token punctuation">(</span>GL_TEXTURE0 <span class="token operator">+</span> slot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>设置纹理统一变量：</p>
+<pre class="line-numbers language-unity" data-language="unity"><div class="caption"><span>shader</span></div><code class="language-unity">uniform sampler2D u_Texture;
+
+void main()
+{
+    vec4 texColor = texture(u_Texture, v_Texcoord);
+    color = texColor;
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>实例</strong>：<br>Texture.h:</p>
+<pre class="line-numbers language-h" data-language="h"><code class="language-h">#pragma once
+
+#include "Renderer.h"
+
+class Texture
+{
+private:
+    unsigned int m_RendererID;
+    std::string m_FilePath;
+    unsigned char* m_localBuffer;
+    int m_Width, m_Height, m_BPP;
+
+public:
+    Texture(const std::string&amp; path);
+    ~Texture();
+
+    void Bind(unsigned int slot = 0) const;
+    void Unbind() const;
+
+    inline int GetWidth() const { return m_Width; }
+    inline int GetHeight() const { return m_Height; }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Texture.cpp:</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Texture.h"</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">STB_IMAGE_IMPLEMENTATION</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"vender\stb_image\stb_image.h"</span></span>
+
+<span class="token class-name">Texture</span><span class="token double-colon punctuation">::</span><span class="token function">Texture</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string <span class="token operator">&amp;</span>path<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token function">m_RendererID</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">m_FilePath</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">m_localBuffer</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">m_Width</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">m_Height</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">m_BPP</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Set Image flip flag bits</span>
+    <span class="token function">stbi_set_flip_vertically_on_load</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    m_localBuffer <span class="token operator">=</span> <span class="token function">stbi_load</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_Width<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_Height<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_BPP<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token function">glGenTextures</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_MIN_FILTER<span class="token punctuation">,</span> GL_LINEAR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_MAG_FILTER<span class="token punctuation">,</span> GL_LINEAR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_WRAP_S<span class="token punctuation">,</span> GL_CLAMP_TO_EDGE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glTexParameteri</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> GL_TEXTURE_WRAP_T<span class="token punctuation">,</span> GL_CLAMP_TO_EDGE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">glTexImage2D</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> GL_RGBA8<span class="token punctuation">,</span> m_Width<span class="token punctuation">,</span> m_Height<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> GL_RGBA<span class="token punctuation">,</span> GL_UNSIGNED_BYTE<span class="token punctuation">,</span> m_localBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>m_localBuffer<span class="token punctuation">)</span>
+        <span class="token function">stbi_image_free</span><span class="token punctuation">(</span>m_localBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Texture</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Texture</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glDeleteTextures</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Texture</span><span class="token double-colon punctuation">::</span><span class="token function">Bind</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span> slot<span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glActiveTexture</span><span class="token punctuation">(</span>GL_TEXTURE0 <span class="token operator">+</span> slot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> m_RendererID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Texture</span><span class="token double-colon punctuation">::</span><span class="token function">Unbind</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token function">glBindTexture</span><span class="token punctuation">(</span>GL_TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="混合（Blending）"><a href="#混合（Blending）" class="headerlink" title="混合（Blending）"></a>混合（Blending）</h2><p>混合（Blending）是OpenGL中的一种渲染技术，用于将多个片元（像素）的颜色值合成到帧缓冲中。混合通常用于实现半透明、阴影、颜色叠加和其他特效。在混合中，每个片元的颜色和透明度（alpha）与已经存在于帧缓冲中的颜色进行组合，最终呈现在屏幕上。</p>
+<p>使用混合的一般步骤：</p>
+<ol>
+<li><p><strong>启用混合</strong>：在使用混合之前，您需要在OpenGL上下文中启用混合功能。您可以使用 <code>glEnable(GL_BLEND)</code> 来启用混合。通常，这会在初始化OpenGL时进行设置。</p>
+</li>
+<li><p><strong>设置混合函数</strong>：混合函数（Blend Function）用于定义如何将新像素与背景像素混合。通常，您会使用 <code>glBlendFunc</code> 函数来设置混合函数。例如，<code>glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)</code> 用于标准的alpha混合，其中 <code>GL_SRC_ALPHA</code> 表示新像素的颜色的alpha通道，<code>GL_ONE_MINUS_SRC_ALPHA</code> 表示背景像素的颜色的alpha通道的补数。</p>
+</li>
+<li><p><strong>启用深度测试（可选）</strong>：如果您同时使用深度测试（Depth Testing），确保深度测试在混合之前执行，以确保像素按正确的顺序渲染。</p>
+</li>
+<li><p><strong>在片段着色器中处理混合</strong>：在片段着色器中，您可以使用特殊变量 <code>gl_FragColor</code>（或 <code>out</code> 变量）来表示片段的颜色。通过修改这个颜色，您可以实现混合效果。例如，根据透明度，您可以将新像素的颜色与背景像素的颜色混合，以产生透明效果。</p>
+</li>
+</ol>
+<p>示例代码片段：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 启用混合</span>
+<span class="token function">glEnable</span><span class="token punctuation">(</span>GL_BLEND<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 设置混合函数</span>
+<span class="token function">glBlendFunc</span><span class="token punctuation">(</span>GL_SRC_ALPHA<span class="token punctuation">,</span> GL_ONE_MINUS_SRC_ALPHA<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 片段着色器中的混合示例</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 计算混合后的颜色</span>
+    vec4 newColor <span class="token operator">=</span> <span class="token function">mix</span><span class="token punctuation">(</span>textureColor<span class="token punctuation">,</span> backgroundColor<span class="token punctuation">,</span> alpha<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    gl_FragColor <span class="token operator">=</span> newColor<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在上面的示例中，<code>glEnable(GL_BLEND)</code> 启用混合，<code>glBlendFunc</code> 设置混合函数，然后在片段着色器中使用 <code>mix</code> 函数来计算混合后的颜色，并将结果赋给 <code>gl_FragColor</code>。</p>
+<p>混合是一个强大的工具，可用于实现各种视觉效果，但也需要小心使用，因为不正确的混合设置可能会导致不期望的结果。根据您的具体需求，您可以尝试不同的混合函数和混合参数来获得所需的效果。</p>
+<h2 id="模型视图投影矩阵（Model-View-Projection-Matrix，MVP）"><a href="#模型视图投影矩阵（Model-View-Projection-Matrix，MVP）" class="headerlink" title="模型视图投影矩阵（Model-View-Projection Matrix，MVP）"></a>模型视图投影矩阵（Model-View-Projection Matrix，MVP）</h2><p>在计算机图形学中，模型视图投影矩阵（Model-View-Projection Matrix，通常简写为MVP矩阵）是一种用于将三维物体的坐标变换到二维屏幕坐标的矩阵。MVP矩阵由三个部分组成：模型矩阵（Model Matrix）、视图矩阵（View Matrix）和投影矩阵（Projection Matrix）。这些矩阵协同工作，使您能够将三维物体从它们的本地坐标空间（模型坐标空间）转换到观察者的视图空间，最终将其投影到二维屏幕坐标。</p>
+<p>下面是每个部分的简要解释：</p>
+<ol>
+<li><p><strong>模型矩阵（Model Matrix）</strong>：模型矩阵用于将物体的本地坐标转换为世界坐标。它描述了物体的位置、旋转和缩放。通常，模型矩阵会将物体从其局部坐标系变换到全局坐标系。</p>
+</li>
+<li><p><strong>视图矩阵（View Matrix）</strong>：视图矩阵定义了观察者的相机位置和方向。它将世界坐标转换为观察者的视图坐标，同时定义了观察方向和相机的位置。视图矩阵使您能够以不同的角度和位置查看场景中的物体。</p>
+</li>
+<li><p><strong>投影矩阵（Projection Matrix）</strong>：投影矩阵定义了观察体积，即可见场景的空间。它可以是正交投影矩阵（Orthographic Projection）或透视投影矩阵（Perspective Projection）。投影矩阵将视图坐标变换为标准化设备坐标（Normalized Device Coordinates，NDC），以便进行最终的屏幕投影。</p>
+</li>
+</ol>
+<p>MVP矩阵的计算顺序通常如下：</p>
+<ol>
+<li><p>首先，将模型矩阵应用于物体的本地坐标，将其转换为世界坐标。</p>
+</li>
+<li><p>然后，将视图矩阵应用于世界坐标，将其变换为观察者的视图坐标。</p>
+</li>
+<li><p>最后，将投影矩阵应用于视图坐标，将其变换为标准化设备坐标，从而进行屏幕投影。</p>
+</li>
+</ol>
+<p>这个MVP矩阵可以将物体从其本地坐标变换到最终的二维屏幕坐标，以进行渲染。</p>
+<pre class="line-numbers language-none"><code class="language-none">uniform mat4 u_MVP;
+
+void main()
+{
+    gl_Position = u_MVP * positions;
+    v_Texcoord = texcoord;
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 设置物体的本地坐标</span>
+<span class="token keyword">float</span> positions<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token number">128.0f</span><span class="token punctuation">,</span> <span class="token number">128.0f</span><span class="token punctuation">,</span> <span class="token number">0.0f</span><span class="token punctuation">,</span> <span class="token number">0.0f</span><span class="token punctuation">,</span>   <span class="token comment">// 0</span>
+            <span class="token number">256.0f</span><span class="token punctuation">,</span> <span class="token number">128.0f</span><span class="token punctuation">,</span> <span class="token number">1.0f</span><span class="token punctuation">,</span> <span class="token number">0.0f</span><span class="token punctuation">,</span>   <span class="token comment">// 1</span>
+            <span class="token number">256.0f</span><span class="token punctuation">,</span>  <span class="token number">256.0f</span><span class="token punctuation">,</span> <span class="token number">1.0f</span><span class="token punctuation">,</span> <span class="token number">1.0f</span><span class="token punctuation">,</span>   <span class="token comment">// 2</span>
+            <span class="token number">128.0f</span><span class="token punctuation">,</span>  <span class="token number">256.0f</span><span class="token punctuation">,</span> <span class="token number">0.0f</span><span class="token punctuation">,</span> <span class="token number">1.0f</span>   <span class="token comment">// 3</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Model-View-Projection Matrix */</span>
+<span class="token comment">// 将投影矩阵应用于视图坐标，将其变换为标准化设备坐标，从而进行屏幕投影。</span>
+glm<span class="token double-colon punctuation">::</span>mat4 proj <span class="token operator">=</span> glm<span class="token double-colon punctuation">::</span><span class="token function">ortho</span><span class="token punctuation">(</span><span class="token number">0.0f</span><span class="token punctuation">,</span> <span class="token number">640.0f</span><span class="token punctuation">,</span> <span class="token number">0.0f</span><span class="token punctuation">,</span> <span class="token number">480.0f</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1.0f</span><span class="token punctuation">,</span> <span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             
+<span class="token comment">// 将视图矩阵应用于世界坐标，将其变换为观察者的视图坐标。</span>
+glm<span class="token double-colon punctuation">::</span>mat4 view <span class="token operator">=</span> glm<span class="token double-colon punctuation">::</span><span class="token function">translate</span><span class="token punctuation">(</span>glm<span class="token double-colon punctuation">::</span><span class="token function">mat4</span><span class="token punctuation">(</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">,</span> glm<span class="token double-colon punctuation">::</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         
+<span class="token comment">// 将模型矩阵应用于物体的本地坐标，将其转换为世界坐标。</span>
+glm<span class="token double-colon punctuation">::</span>mat4 model <span class="token operator">=</span> glm<span class="token double-colon punctuation">::</span><span class="token function">translate</span><span class="token punctuation">(</span>glm<span class="token double-colon punctuation">::</span><span class="token function">mat4</span><span class="token punctuation">(</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">,</span> glm<span class="token double-colon punctuation">::</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      
+
+glm<span class="token double-colon punctuation">::</span>mat4 mvp <span class="token operator">=</span> proj <span class="token operator">*</span> view <span class="token operator">*</span> model<span class="token punctuation">;</span>
+
+shader<span class="token punctuation">.</span><span class="token function">SetUniformMatrix4f</span><span class="token punctuation">(</span><span class="token string">"u_MVP"</span><span class="token punctuation">,</span> mvp<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>

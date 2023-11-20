@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="5G, Sparrow">
     <meta name="description" content="5G关键技术物理层技术
+
 传输信道
 
 下行传输信道
@@ -15,7 +16,7 @@
 寻呼信道（PCH，Paging Channel）
 
 
-上">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -426,7 +427,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="5G关键技术"><a href="#5G关键技术" class="headerlink" title="5G关键技术"></a>5G关键技术</h1><h2 id="物理层技术"><a href="#物理层技术" class="headerlink" title="物理层技术"></a>物理层技术</h2><ul>
+                <h1 id="5G关键技术"><a href="#5G关键技术" class="headerlink" title="5G关键技术"></a>5G关键技术</h1><h2 id="物理层技术"><a href="#物理层技术" class="headerlink" title="物理层技术"></a>物理层技术</h2><p><img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/202311071109358.png"></p>
+<ul>
 <li><p>传输信道</p>
 <ul>
 <li><p>下行传输信道</p>
@@ -452,7 +454,7 @@
 </li>
 <li><p>物理广播信道(Physical Broadcast CHannel,PBCH)：用于UE接入网络所需的系统信息广播。</p>
 </li>
-<li><p>物理上行共享信道(Physical Uplink Shared CHannel,PUSCH)：用于(UE进行)上行数据传输</p>
+<li><p>物理上行共享信道(Physical Uplink Shared CHannel,PUSCH)：用于承载终端设备上行数据，这些数据包括用户生成的语音、视频、文本消息、应用程序数据等。</p>
 </li>
 <li><p>物理上行控制信道(Physical Uplink Control CHannel,PUCCH)：用于传输上行控制信息，上行控制信息包括：HARQ反馈确认（指示下行传输是否成功）、调度请求（向网络请求用于上行传输的时频资源），以及用于链路自适应的下行信道状态信息。</p>
 </li>
@@ -481,7 +483,419 @@
 </ul>
 </li>
 </ul>
-<h3 id="调制"><a href="#调制" class="headerlink" title="调制"></a>调制</h3><h3 id="波形（OFDM）"><a href="#波形（OFDM）" class="headerlink" title="波形（OFDM）"></a>波形（OFDM）</h3><h3 id="多天线"><a href="#多天线" class="headerlink" title="多天线"></a>多天线</h3><h3 id="信道编码"><a href="#信道编码" class="headerlink" title="信道编码"></a>信道编码</h3><h3 id="时频资源"><a href="#时频资源" class="headerlink" title="时频资源"></a>时频资源</h3><h4 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h4><h4 id="双工"><a href="#双工" class="headerlink" title="双工"></a>双工</h4><h3 id="随机接入"><a href="#随机接入" class="headerlink" title="随机接入"></a>随机接入</h3>
+<h3 id="PUSCH"><a href="#PUSCH" class="headerlink" title="PUSCH"></a>PUSCH</h3><p>PUSCH（Physical Uplink Shared Channel）是一种物理上行共享信道，通常在LTE（Long-Term Evolution）和5G NR（New Radio）等移动通信系统中使用。PUSCH主要用于将终端设备（如手机或其他通信设备）的上行数据传输到基站或基础设施，以实现双向通信。</p>
+<p>以下是有关PUSCH的关键信息：</p>
+<ol>
+<li><p><strong>用途</strong>：</p>
+<ul>
+<li>PUSCH用于承载终端设备上行数据，这些数据包括用户生成的语音、视频、文本消息、应用程序数据等。</li>
+</ul>
+</li>
+<li><p><strong>信道类型</strong>：</p>
+<ul>
+<li>PUSCH是一个物理上行信道，它传输终端设备的上行数据。</li>
+</ul>
+</li>
+<li><p><strong>多路访问方式</strong>：</p>
+<ul>
+<li>在LTE和5G NR等通信系统中，PUSCH通常采用多址访问方式（Multiple Access）来支持多个设备共享同一上行频带资源。在LTE中，采用SC-FDMA（Single-Carrier Frequency Division Multiple Access）作为上行多址访问技术，而在5G NR中，使用更高效的FDMA（Frequency Division Multiple Access）。</li>
+</ul>
+</li>
+<li><p><strong>带宽分配</strong>：</p>
+<ul>
+<li>PUSCH的带宽可以根据网络需求和配置进行动态分配。带宽可以是连续的或离散的资源块，具体取决于通信系统的设计。</li>
+</ul>
+</li>
+<li><p><strong>调制和编码</strong>：</p>
+<ul>
+<li>PUSCH中的数据通常经过调制和编码，以便在无线信道上传输。调制和编码的方式通常根据信道条件和配置而变化。</li>
+</ul>
+</li>
+<li><p><strong>功率控制</strong>：</p>
+<ul>
+<li>PUSCH的传输功率通常受到功率控制机制的控制，以确保传输在可接受范围内，从而减少干扰和提高系统性能。</li>
+</ul>
+</li>
+<li><p><strong>ACK/NACK反馈</strong>：</p>
+<ul>
+<li>在5G NR中，PUSCH上行链路可能用于传输设备的数据，同时还可以用于传输ACK/NACK（确认/否定）反馈，以指示接收端是否成功接收到下行数据。</li>
+</ul>
+</li>
+<li><p><strong>调度和资源管理</strong>：</p>
+<ul>
+<li>网络基站根据调度算法和资源管理策略来分配PUSCH资源，以满足不同设备的上行传输需求。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>PUSCH是LTE和5G NR等移动通信系统中用于传输终端设备上行数据的重要信道。它通过多址访问方式支持多个设备共享上行频带资源，经过调制、编码和功率控制等处理，以确保高效的上行数据传输。网络基站根据资源管理策略来动态分配PUSCH资源，以满足不同设备的通信需求。</p>
+</blockquote>
+<h4 id="5G-PUSCH信道收发流程"><a href="#5G-PUSCH信道收发流程" class="headerlink" title="5G PUSCH信道收发流程"></a>5G PUSCH信道收发流程</h4><p>5G PUSCH 信道可以支持两种类型的波形，即 <a href="#cp-ofdm">CP-OFDM</a>波形和基于 DFT 扩展的 OFDM(DFT-Spread-OFDM, <a href="#dft-s-ofdm">DFT-S-OFDM</a>) 波形</p>
+<p>CP-OFDM 属于多载波波形，可以更好地与 MIMO 技术相互结合，以增强系统的抗干扰能力，并且在接收端所需均衡算法的复杂度较低，使用一般的线性均衡便可实现较好的效果。CP-OFDM 波形可以支持多流传输，给高数据传输速率提供了可能。通常适用于近、中点应用场景。</p>
+<p>DFT-S-OFD为单载波波形，能够提升覆盖性能，应用场景通常为远点，通过较低的峰均比 (Peak to Average Power Ratio, PAPR) 获得功率回退增益</p>
+<p><strong>发送流程：</strong><br>  <img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/20231009112431.png" alt="PUSCH信道收发流程图"></p>
+<ol>
+<li><p><strong>上行数据生成</strong>：终端设备（用户设备）生成上行数据，这可以是从用户生成的语音、视频、文本消息、应用程序数据等。</p>
+</li>
+<li><p><strong>加扰（Scrambling）</strong>：加扰是通过与特定序列（一个由长度为31 的 Gold 序列生成的随机序列）异或操作来实现的。可以使干扰的特性近似于白噪声，且这种随机化非常有助于提升信道编码增益的利用率，增加数据的随机性和安全性。</p>
+</li>
+<li><p><strong>调制（Modulation）</strong>：经过加扰后的数据被调制成数字符号，通常采用QAM（Quadrature Amplitude Modulation）等调制方式，以在不同的调制阶数中传输数据。</p>
+</li>
+<li><p><strong>层映射（Layer Mapping）</strong>：如果系统采用多天线技术（例如MIMO，Multiple Input Multiple Output），则调制后的数据可以被分配到不同的传输层。层映射将数据分配到不同的发送天线，以提高通信质量和可靠性。</p>
+</li>
+<li><p><strong>转换预编码（Precoding）</strong>：对于MIMO系统，预编码技术可以在发射前对数据进行空间处理，以减少干扰并优化接收端的信号质量。</p>
+</li>
+<li><p><strong>预编码（Precoding）</strong>：数据被进一步处理，以满足系统要求，如波束赋形（beamforming）和天线选择。</p>
+</li>
+<li><p><strong>资源映射（Resource Mapping）</strong>：确定PUSCH信号在时域和频域上的资源分配。这是根据系统配置和资源分配信息完成的。</p>
+</li>
+<li><p><strong>符号生成（Symbol Generation）</strong>：基于资源映射信息，生成PUSCH符号。这些符号表示要发送的上行数据，包括承载数据和控制信息。</p>
+</li>
+<li><p><strong>天线发射</strong>：生成的PUSCH符号通过无线电前端传输到天线，最终通过无线信道发送给基站。这包括RF信号处理和无线电前端的调制、放大和发射。</p>
+</li>
+</ol>
+<p><strong>接受流程：</strong><br>  <img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/202310101026353.png" alt="PUSCH信道接收流程图"></p>
+<h4 id="5G解调参考信号DMRS"><a href="#5G解调参考信号DMRS" class="headerlink" title="5G解调参考信号DMRS"></a>5G解调参考信号DMRS</h4><p>在5G NR（New Radio）通信系统中，DMRS（Demodulation Reference Signal）是一种解调参考信号，用于协助接收端进行数据解调和信道估计。NR 上下行的业务信道和控制信道都需要解调参考信号（Demodulation ReferenceSignal，DM­RS）作为导频来进行信道估计和相干解调。DMRS的主要作用是提供了一种已知的信号，接收端可以利用它来估计信道条件和相位，以更准确地解码接收到的数据。</p>
+<ol>
+<li><p><strong>位置和分布</strong>：DMRS信号在物理资源块（Physical Resource Block）中的特定位置和分布是根据系统配置和波束赋形策略而确定的。在时域和频域上，DMRS通常分布在特定的位置，以便接收端能够准确识别和估计它们。</p>
+</li>
+<li><p><strong>频域上的DMRS</strong>：在频域上，DMRS通常出现在物理资源块的特定子载波上。这些子载波通常称为“DMRS端口”。频域上的DMRS用于进行信道估计和提供多天线传输（例如，MIMO）的参考。</p>
+</li>
+<li><p><strong>时域上的DMRS</strong>：在时域上，DMRS出现在特定的符号位置，通常在物理资源块的开头或结尾。它们用于同步和时域信道估计。</p>
+</li>
+<li><p><strong>DMRS符号结构</strong>：DMRS符号的结构通常是已知的，接收端知道如何解码它们。DMRS的结构包括特定的序列和调制方式。</p>
+</li>
+<li><p><strong>波束赋形</strong>：DMRS信号可以用于波束赋形（beamforming），其中接收端根据接收到的DMRS信号来调整天线的相位和权重，以获得更好的信号质量。</p>
+</li>
+<li><p><strong>信道估计</strong>：接收端可以使用DMRS信号来估计信道条件，包括信道增益、相位和多径传播信息。这些估计用于解码接收到的数据。</p>
+</li>
+<li><p><strong>干扰抑制</strong>：DMRS信号还可以用于干扰抑制。接收端可以识别DMRS信号，并将其从接收到的信号中去除，以减少干扰。</p>
+</li>
+</ol>
+<blockquote>
+<p>DMRS信号对于提高数据传输的可靠性和效率非常重要。</p>
+</blockquote>
+<blockquote>
+<p>PUSCH是上行共享信道，即可传数据，又可传输PMI,CQI，RI等控制信息；PUCCH是上行控制信道，只能传输上性能控制信息，但不可以传输用户数据<br>PUCCH主要是周期性上报的，PUSCH主要是请求调度时使用。如果同时存在，那么PUSCH会覆盖掉PUCCH，在非载波聚合网络中，不能同时上报控制信息。</p>
+</blockquote>
+<h3 id="PUCCH"><a href="#PUCCH" class="headerlink" title="PUCCH"></a>PUCCH</h3><p>PUCCH（Physical Uplink Control Channel）物理上行控制信道，是在LTE（Long-Term Evolution）和5G移动通信系统中使用的一种无线物理信道，用于在上行链路上传输控制信息。PUCCH的主要任务是支持上行链路的调度、ACK/NACK（确认/否认）反馈、资源分配等控制信息的传输。</p>
+<ol>
+<li><p><strong>功能</strong>：PUCCH主要用于传输与调度和控制相关的信息。这包括：</p>
+<ul>
+<li><strong>调度信息</strong>：调度信息用于指导用户设备何时发送上行数据，以避免冲突和碰撞。</li>
+<li><strong>ACK/NACK反馈</strong>：PUCCH用于传输接收到的下行数据包的确认（ACK）或否认（NACK）信息，以告知基站是否成功接收数据包。</li>
+<li><strong>资源分配请求</strong>：PUCCH也可以用于请求上行资源分配，以便用户设备可以发送数据。</li>
+</ul>
+</li>
+<li><p><strong>频段和资源</strong>：PUCCH的频段和资源在LTE和5G中都是灵活配置的，通常由基站进行调度。不同的子帧和符号用于传输不同类型的控制信息。</p>
+</li>
+<li><p><strong>调制和编码</strong>：PUCCH的调制和编码方案会根据具体的通信系统和配置而有所不同，但通常采用QPSK（Quadrature Phase Shift Keying）或BPSK（Binary Phase Shift Keying）等调制方式。</p>
+</li>
+<li><p><strong>传输时机</strong>：PUCCH的传输时机通常由基站进行调度和控制。传输时机可能会因不同的控制信息类型而异。</p>
+</li>
+<li><p><strong>功率控制</strong>：为了保证PUCCH的可靠传输，通常需要进行功率控制，以确保适当的信噪比。</p>
+</li>
+</ol>
+<h4 id="上行控制信息"><a href="#上行控制信息" class="headerlink" title="上行控制信息"></a>上行控制信息</h4><p>PUCCH（Physical Uplink Control Channel）中包含各种上行控制信息，其中一些主要包括HARQ-ACK、SR、CSI。</p>
+<ol>
+<li><strong>HARQ-ACK（Hybrid Automatic Repeat Request - Acknowledgment）</strong>：<br>  HARQ（Hybrid Automatic Repeat Request）是一种混合自动重传请求技术，它结合了前向纠错编码（FEC）和自动重传请求（ARQ），以确保可靠的数据传输。</li>
+</ol>
+<p>  HARQ-ACK用于传输接收到的下行数据包的确认（ACK）或否认（NACK）信息。这是重要的反馈机制，告知基站是否成功接收到下行数据包。如果接收到ACK，则表示数据包已成功接收，如果接收到NACK，则表示需要重传数据包。</p>
+<p>  它通常包括检错、纠错和应答等功能，以确保可靠的数据传输。</p>
+<p>  HARQ的工作原理如下：</p>
+<pre><code>1. **前向纠错编码（FEC）**：
+  在发送端，数据通常会经过前向纠错编码，以添加冗余信息，使接收端能够检测和纠正数据中的错误。这有助于减少在传输过程中发生的错误，提高数据的可靠性。
+
+2. **数据传输**：
+  经过FEC编码的数据被发送到接收端。在传输过程中，数据可能会受到干扰、噪声或其他问题的影响，导致错误。
+
+3. **接收端检测**：
+  接收端会检测接收到的数据，使用FEC编码的冗余信息来检测和纠正错误。如果数据经过检测后没有错误，接收端可以立即使用这些数据。
+
+4. **自动重传请求（ARQ）**：
+  如果接收端检测到数据包含错误，它可以向发送端发送自动重传请求（NACK），请求重新发送有问题的数据包。
+
+5. **重传**：
+  在收到NACK后，发送端会重新发送丢失或损坏的数据包。接收端会将这些新数据与之前的数据进行合并，以恢复丢失的部分。
+
+6. **循环**：
+  这个过程可以循环多次，直到接收端成功接收到正确的数据或达到最大重传次数。
+</code></pre>
+<blockquote>
+<p>HARQ的优势在于，它结合了FEC的纠错能力和ARQ的自动重传请求机制，以最大程度地提高数据的可靠性。这对于移动通信、数据传输和各种无线通信应用非常有用，因为它可以应对无线信道上的干扰和误差，确保数据能够在不可靠的环境中可靠传输。这种技术在LTE、5G等现代移动通信标准中得到广泛应用。</p>
+</blockquote>
+<p>  HARQ­ACK 反馈方案：</p>
+<ul>
+<li><p>半静态码本（Semi­state Codebook）</p>
+</li>
+<li><p>动态码本（Dynamic Codebook）</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>SR（Scheduling Request）</strong>：<br>  SR用于请求上行资源，以便用户设备可以发送数据。当用户设备需要发送数据时，它可以向基站发送SR，以请求分配上行资源。基站可以根据SR来决定何时分配资源。</li>
+</ol>
+<p>  <strong>基站响应SR信号：</strong></p>
+<ol>
+<li><p><strong>用户设备发送SR</strong>：</p>
+<ul>
+<li>当用户设备需要上传数据时，它会发送SR，请求分配上行资源。SR通常会在PUCCH（Physical Uplink Control Channel）上发送。</li>
+</ul>
+</li>
+<li><p><strong>PDCCH分配上行资源</strong>：</p>
+<ul>
+<li>基站接收到用户设备的SR后，会使用PDCCH来分配适当的上行资源。PDCCH用于向用户设备发送控制信息，包括上行资源分配信息。</li>
+</ul>
+</li>
+<li><p><strong>PDCCH传输和解码</strong>：</p>
+<ul>
+<li>基站在特定的下行子帧中发送PDCCH，其中包含了上行资源分配信息，以满足用户设备的请求。</li>
+<li>用户设备在其监听窗口内（通常是一个特定的子帧）监听PDCCH，并尝试解码其中的信息。</li>
+</ul>
+</li>
+<li><p><strong>响应和数据传输</strong>：</p>
+<ul>
+<li>如果用户设备成功解码PDCCH中的上行资源分配信息，它将按照分配的资源和调度要求，使用PUSCH（Physical Uplink Shared Channel）来上传数据。</li>
+<li>基站会监听用户设备的上传数据，并进行相关处理，如解码和数据交付。</li>
+</ul>
+</li>
+<li><p><strong>回馈和调度</strong>：</p>
+<ul>
+<li>基站可以使用PDCCH来通知用户设备是否成功分配了上行资源，以及分配的资源的详细信息。用户设备收到这些信息后，会执行相应的数据传输。</li>
+</ul>
+</li>
+<li><p><strong>CSI（Channel State Information）</strong>：<br>  CSI用于向基站提供信道状态信息，以帮助基站进行更好的资源分配和干扰协调。</p>
+<ol>
+<li><p><strong>CQI（Channel Quality Indicator）</strong>：CQI 是用于指示接收端（UE）所感知到的下行信道质量的指标。它通常以一种数值的形式表示，该数值反映了信道质量的好坏。CQI的值越高，表示信道质量越好，可以支持更高的数据传输速率。基站可以使用CQI信息来决定在某个时间和频率资源上分配多少比特数据，以满足不同UE的需求。</p>
+</li>
+<li><p><strong>PMI（Precoding Matrix Indicator）</strong>：PMI是指示预编码矩阵的指示器。预编码是在MIMO（Multiple-Input, Multiple-Output）系统中用于提高数据传输的技术。PMI告诉基站哪种预编码矩阵在当前信道条件下最适合使用，以最大程度地提高信号的可靠性和质量。</p>
+</li>
+<li><p><strong>RI（Rank Indicator）</strong>：RI是MIMO系统中的秩指示器，它指示了信道的秩，也就是信道中具有多少有效传输通道。RI告诉基站信道的多路径特性，基站可以根据RI来选择适当的编码方式和天线配置。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="Zadoff-­Chu序列"><a href="#Zadoff-­Chu序列" class="headerlink" title="Zadoff-­Chu序列"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/HiWangWenBing/article/details/113752716">Zadoff-­Chu序列</a></h4><p>Zadoff-Chu序列是一个欧拉复数序列，通常用于无线通信系统中的信道估计、同步、多址识别和频域分配等应用。</p>
+<p><strong>定义</strong>：<br>Zadoff-Chu序列可以表示为以下形式：</p>
+<p>$$ZC(n, u, N_{\text{ZC}}) = e^{j \cdot \frac{\pi \cdot u \cdot n \cdot (n + 1)}{N_{\text{ZC}}}},$$</p>
+<p>其中：</p>
+<ul>
+<li>$ZC(n, u, N_{\text{ZC}})$ 表示序列的第 $n$ 个元素。</li>
+<li>$n$ 是序列的序列号，$0 &lt;= m &lt;= N_\text{ZC} - 1$。</li>
+<li>$u$ 是一个整数，称为Zadoff-Chu序列的根指数。</li>
+<li>$N_{\text{ZC}}$ 是Zadoff-Chu序列的长度。</li>
+</ul>
+<p><strong>性质</strong>：</p>
+<ol>
+<li><p><strong>恒包络</strong>：任意长度的ZC序列的信号的幅值是恒定的，这也意味着功率恒定。</p>
+</li>
+<li><p><strong>理想周期自相关</strong>：Zadoff-Chu序列是周期性的，具有周期 $N_{\text{ZC}}$。ZC序列循环移位N，如果N不等于ZC序列的长度（$N_{\text{ZC}}$），则移位后的序列和原序列零相关。</p>
+</li>
+<li><p><strong>良好的互相关性</strong>：Zadoff-Chu序列循环移位N后，原序列只与移位后的序列得良好的相关峰值，其它位置的序列相关峰值为0。除此之外，两个根如果是互质的，生成的序列相关峰值几乎为零</p>
+</li>
+<li><p><strong>傅立叶变换后仍是ZC序列</strong></p>
+</li>
+<li><p><strong>频域性质</strong>：Zadoff-Chu序列在频域中产生边瓣很小的谱，这有助于在频域上进行精确的信道估计。</p>
+</li>
+<li><p><strong>时间域性质</strong>：Zadoff-Chu序列在时间域中具有良好的自相干性，有助于同步和时间标定。</p>
+</li>
+<li><p><strong>多种根指数和长度</strong>：不同的根指数和长度可以生成不同种类的Zadoff-Chu序列，这提供了灵活性，适用于不同应用和场景。</p>
+</li>
+</ol>
+<h4 id="PUCCH格式"><a href="#PUCCH格式" class="headerlink" title="PUCCH格式"></a>PUCCH格式</h4><p>PUCCH信道格式，是指PUCCH信道,在时域上占用多少个符号、在频域上占用多少子载波、通过什么编码方式承载要传输的UCI比特数据的一种约定。<br><img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/202310251111268.png"></p>
+<h5 id="5G-NR的PUCCH格式"><a href="#5G-NR的PUCCH格式" class="headerlink" title="5G-NR的PUCCH格式"></a>5G-NR的PUCCH格式</h5><p><img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/202311061355379.png"></p>
+<h3 id="PDSCH"><a href="#PDSCH" class="headerlink" title="PDSCH"></a>PDSCH</h3><h3 id="PDCCH"><a href="#PDCCH" class="headerlink" title="PDCCH"></a>PDCCH</h3><h3 id="调制"><a href="#调制" class="headerlink" title="调制"></a>调制</h3><h3 id="OFDM"><a href="#OFDM" class="headerlink" title="OFDM"></a>OFDM</h3><blockquote>
+<p>OFDM（Orthogonal Frequency Division Multiplexing）技术是一种在数字通信中广泛使用的调制和多路复用技术。它将高速数据流分为多个较低速的子信道，并在这些子信道上同时传输数据，从而提高了通信系统的性能和鲁棒性。以下是OFDM技术的关键特点和工作原理：</p>
+</blockquote>
+<ol>
+<li><p><strong>子载波和频域分割</strong>：<br>  OFDM将整个带宽分成多个子载波，每个子载波通常是正交的。这些子载波之间的正交性使它们在频域上不会相互干扰，允许它们同时传输数据。</p>
+</li>
+<li><p><strong>符号调制</strong>：<br>  在每个子载波上，数据被调制成符号。通常采用QAM（Quadrature Amplitude Modulation）或PSK（Phase Shift Keying）等调制方式。</p>
+</li>
+<li><p><strong>正交性</strong>：<br>  OFDM中的子载波是正交的，这意味着它们之间没有互相干扰的交叉谱。这种正交性使得OFDM系统更能抵抗多径传播引起的符号间干扰。</p>
+</li>
+<li><p><strong>循环前缀</strong>：<br>  为了对抗多径传播，每个OFDM符号的前面会添加一个循环前缀（Cyclic Prefix）。这个前缀是从符号的尾部复制而来，用于确保接收端可以正确识别符号。</p>
+</li>
+<li><p><strong>时域和频域分离</strong>：<br>  OFDM通过使用快速傅立叶变换（FFT）在频域上进行调制和解调。每个子载波对应于FFT中的一个频率点，这使得OFDM能够在时域和频域上实现分离，从而简化了信号处理。</p>
+</li>
+<li><p><strong>抗多径传播</strong>：<br>  多径传播是信号在传播路径上反射和衍射引起的多个版本的信号到达接收器。OFDM的正交性和循环前缀有助于减少多径引起的符号间干扰，提高了系统的鲁棒性。</p>
+</li>
+<li><p><a href="#%E9%A2%91%E7%8E%87%E9%80%89%E6%8B%A9%E6%80%A7%E8%A1%B0%E8%90%BD"><strong>频率选择性衰落</strong></a>：<br>  OFDM可以有效处理频率选择性信道衰落，因为它将信道衰落分别应用于每个子载波，而不是整个带宽。</p>
+</li>
+<li><p><strong>资源分配和灵活性</strong>：<br>  OFDM系统可以通过灵活地分配子载波来适应不同的通信需求和信道条件。资源分配可以根据数据速率、优先级和质量等因素进行调整。</p>
+</li>
+</ol>
+<p><strong>OFDM发射接收框图</strong><br>  <img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/202310101101323.png"></p>
+<h4 id="导频（Pilot）"><a href="#导频（Pilot）" class="headerlink" title="导频（Pilot）"></a>导频（Pilot）</h4><blockquote>
+<p>导频的作用在于帮助接收端更好地理解信道的特性，包括信道的频率响应、相位偏移和信道衰落等。这使得接收端能够更准确地解调和恢复原始数据，提高了通信系统的性能和可靠性。</p>
+</blockquote>
+<ol>
+<li><p><strong>信道估计</strong>：导频是已知的信号，它们的值在发射端和接收端都是已知的。接收端可以利用导频信号来估计信道的衰落、相位偏移和其他特性。这有助于接收端更准确地恢复原始数据。通过比较接收到的导频值和已知的发送端导频值，接收端可以估计信道的影响，并进行信号解调和恢复。</p>
+</li>
+<li><p><strong>信道补偿</strong>：接收端可以使用导频估计的信道信息来对接收到的数据进行信道补偿。这意味着接收端可以校正信号的相位和幅度，以抵消信道引起的失真。这有助于提高数据的准确性和可靠性。</p>
+</li>
+<li><p><strong>自动增益控制（AGC）</strong>：导频信号还可以用于自动增益控制。接收端可以使用导频信号的强度信息来调整接收机的增益，以确保信号在适当的范围内，避免过载或信号弱化。</p>
+</li>
+<li><p><strong>频率偏移估计</strong>：导频信号还可以用于估计接收端和发射端之间的频率偏移。这对于抵消载波频率偏移非常重要，以便准确地解调数据。</p>
+</li>
+<li><p><strong>多天线系统</strong>：在多天线系统中，导频信号可以用于进行波束赋形和天线选择。接收端可以根据导频信号的反馈来确定哪些天线或波束组合提供了最好的通信质量。</p>
+</li>
+</ol>
+<h4 id="虚载波"><a href="#虚载波" class="headerlink" title="虚载波"></a>虚载波</h4><blockquote>
+<p>在OFDM（Orthogonal Frequency Division Multiplexing）技术中，虚载波（Null Subcarriers）是一些子载波，其上不传输有效数据。</p>
+</blockquote>
+<p>虚载波在OFDM系统中有以下几种重要作用：</p>
+<ol>
+<li><p><strong>频谱保护和避免干扰</strong>：虚载波用于保护OFDM系统的频谱免受邻近信号或其他干扰源的影响。通过保留一些子载波为空载波，OFDM系统可以减少与邻近频带信号之间的干扰，从而提高通信系统的鲁棒性。</p>
+</li>
+<li><p><strong>PAPR 控制</strong>：PAPR（Peak-to-Average Power Ratio）是指OFDM信号的峰值功率与平均功率之间的比值。在OFDM系统中，部分子载波的幅度可能很大，导致高PAPR，这会增加功率放大器的要求。通过使用虚载波，可以减小PAPR，减少功率放大器的压力，提高系统的能效。</p>
+</li>
+<li><p><strong>同步和定时</strong>：虚载波可以用于同步和定时。接收端可以通过检测虚载波的位置来实现时钟同步，以确保符号正确地对齐。这对于准确解调其他子载波上的数据非常重要。</p>
+</li>
+<li><p><strong>保护特定子载波</strong>：虚载波可以用于保护特定子载波，使其免受干扰或频谱混叠的影响。这对于特殊应用中的子载波保护非常有用，如导航信号或控制信号。</p>
+</li>
+<li><p><strong>系统灵活性</strong>：虚载波的存在提供了OFDM系统的灵活性。通过动态配置虚载波的位置和数量，OFDM系统可以适应不同的通信需求和信道条件。</p>
+</li>
+</ol>
+<blockquote>
+<p>虚载波在OFDM系统中发挥着重要的作用，包括频谱保护、PAPR控制、同步、保护特定子载波和系统灵活性。它们有助于提高系统性能、鲁棒性和可靠性，同时允许OFDM系统更好地适应不同的通信场景。</p>
+</blockquote>
+<h4 id="循环前缀（Cyclic-Prefix）"><a href="#循环前缀（Cyclic-Prefix）" class="headerlink" title="循环前缀（Cyclic Prefix）"></a>循环前缀（Cyclic Prefix）</h4><p>OFDM（Orthogonal Frequency Division Multiplexing）技术中添加CP（Cyclic Prefix，循环前缀）的主要作用是对抗多径传播引起的符号间干扰。多径传播是信号在传播路径上经历多次反射和衍射，导致接收端同时接收到多个版本的信号，这些版本具有不同的时延和相位。</p>
+<blockquote>
+<p>循环前缀是从前一个OFDM符号的尾部复制而来，长度通常是符号的一部分，一般为OFDM符号长度的一小部分。</p>
+</blockquote>
+<blockquote>
+<p>前缀的目的是为了在多径传播引起的符号重叠之间创建一段”间隔”，以便接收端可以更容易地区分不同符号之间的干扰。</p>
+</blockquote>
+<p><strong>优点：</strong></p>
+<ol>
+<li><p><strong>抵抗多径传播</strong>：多径传播导致了符号间的时延扩散，即不同版本的信号以不同的时延到达接收端。这会导致符号间干扰，因为接收端无法准确分辨符号的边界。通过在每个OFDM符号的前面添加CP，接收端可以使用CP来消除时延扩散引起的符号间干扰。</p>
+</li>
+<li><p><strong>简化接收端处理</strong>：CP的存在简化了接收端的信号处理，因为接收端可以通过在时域上对接收到的信号进行循环相关操作来去除CP，然后使用快速傅立叶变换（FFT）将信号变换到频域。这使得信号处理更加有效和简单。</p>
+</li>
+<li><p><strong>提高系统性能</strong>：CP允许OFDM系统更好地应对多径传播和频率选择性衰落等信道特性。它提高了系统的鲁棒性和抗干扰性能，使OFDM在各种通信环境中都能有效地工作。</p>
+</li>
+<li><p><strong>减少PAPR</strong>：添加CP还有助于减少OFDM信号的峰均比（Peak-to-Average Power Ratio，PAPR）。PAPR是指信号的峰值功率与平均功率之间的比值。通过将信号扩展到CP中，可以减小信号的峰值功率，降低了对功率放大器的要求，从而提高了系统的能效。</p>
+</li>
+</ol>
+<p>缺点：循环前缀会占用一定的频谱资源，导致频谱效率的降低</p>
+<h3 id="多天线（MIMO）"><a href="#多天线（MIMO）" class="headerlink" title="多天线（MIMO）"></a>多天线（MIMO）</h3><h3 id="信道估计-均衡"><a href="#信道估计-均衡" class="headerlink" title="信道估计&amp;均衡"></a>信道估计&amp;均衡</h3><h3 id="时频资源"><a href="#时频资源" class="headerlink" title="时频资源"></a>时频资源</h3><h4 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h4><blockquote>
+<p>5G NR定义了灵活的子构架，时隙和字符长度可根据子载波间隔SCS灵活定义。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/20438763-e1bb288f9c746261.png"></p>
+<ul>
+<li>无线帧 = 10（ms）</li>
+<li>子帧 = 1 （ms）</li>
+<li>时隙 = 12/14个符号周期（ms）</li>
+<li>符号周期 = 1/SCS + CP长度（ms）</li>
+</ul>
+<h5 id="子帧类型"><a href="#子帧类型" class="headerlink" title="子帧类型"></a>子帧类型</h5><p><img src="https://raw.githubusercontent.com/sparrowyou/picture_bed/main/blog_image/20438763-9b670c4509727259.png"></p>
+<table>
+<thead>
+<tr>
+<th align="center">$\mu$</th>
+<th align="center">$N_{symb}^{slot}$</th>
+<th align="center">$N_{slot}^{frame, \mu}$</th>
+<th align="center">$N_{slot}^{subframe, \mu}$</th>
+<th align="center">slot</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0(15kHz)</td>
+<td align="center">14</td>
+<td align="center">10</td>
+<td align="center">1</td>
+<td align="center">1ms</td>
+</tr>
+<tr>
+<td align="center">1(30kHz)</td>
+<td align="center">14</td>
+<td align="center">20</td>
+<td align="center">2</td>
+<td align="center">0.5ms</td>
+</tr>
+<tr>
+<td align="center">2(60kHz)</td>
+<td align="center">12/14</td>
+<td align="center">40</td>
+<td align="center">4</td>
+<td align="center">0.25ms</td>
+</tr>
+<tr>
+<td align="center">3(120kHz)</td>
+<td align="center">14</td>
+<td align="center">80</td>
+<td align="center">8</td>
+<td align="center">0.125ms</td>
+</tr>
+<tr>
+<td align="center">4(240kHz)</td>
+<td align="center">14</td>
+<td align="center">160</td>
+<td align="center">16</td>
+<td align="center">0.0625ms</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>随着子载波间距的增大，时隙会变短，数据调度粒度就更小，更适合于时延要求高的传输</p>
+</blockquote>
+<h5 id="时隙配置"><a href="#时隙配置" class="headerlink" title="时隙配置"></a>时隙配置</h5><ul>
+<li>时隙类型<ul>
+<li>上行时隙（Uplink Slot）：<br>上行时隙用于用户设备向基站传输数据。允许终端设备发送数据，以便与网络进行双向通信。</li>
+<li>下行时隙（Downlink Slot）：<br>下行时隙用于基站向用户设备传输数据。时隙用于网络向用户提供服务和内容。</li>
+<li>灵活时隙（Flexible Slot）：<br>可以根据实际通信需求和资源利用情况来分配和管理时隙的能力。</li>
+</ul>
+</li>
+</ul>
+<h3 id="随机接入"><a href="#随机接入" class="headerlink" title="随机接入"></a>随机接入</h3><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="CP-OFDM"><a href="#CP-OFDM" class="headerlink" title="CP-OFDM"></a>CP-OFDM</h3><p>CP-OFDM（Cyclic Prefix Orthogonal Frequency Division Multiplexing）是一种调制和多路复用技术，常用于无线通信系统，特别是在Wi-Fi、LTE（Long-Term Evolution）和5G NR（New Radio）等标准中。<br>CP-OFDM的主要特点是在每个OFDM符号的前面添加了一个循环前缀（Cyclic Prefix），用于对抗多径传播引起的符号间干扰。</p>
+<p>以下是CP-OFDM的一些关键特点和工作原理：</p>
+<ol>
+<li><p><strong>多载波调制</strong>：CP-OFDM将数据分成多个子载波，每个子载波都携带一部分数据。这种多载波调制技术允许在不同的子载波上同时传输数据，提高了频谱效率。</p>
+</li>
+<li><p><strong>循环前缀</strong>：CP-OFDM在每个OFDM符号的前面添加了一个循环前缀，也称为CP。这个前缀是从OFDM符号的尾部复制而来的，用于对抗多径传播引起的符号间干扰。循环前缀的长度通常是符号的一部分，一般为OFDM符号长度的一小部分。</p>
+</li>
+<li><p><strong>时域和频域分离</strong>：CP-OFDM通过使用快速傅立叶变换（FFT）在频域上进行调制和解调。每个子载波都由FFT中的一个频率点表示，这使得CP-OFDM能够实现时域和频域分离，从而简化了信号处理。</p>
+</li>
+<li><p><strong>对抗多径传播</strong>：多径传播是信号在传播路径上反射和衍射引起的多个版本的信号到达接收器。CP-OFDM的循环前缀可以抵消多径引起的符号间干扰，从而提高了系统的鲁棒性和抗干扰能力。</p>
+</li>
+<li><p><strong>频率选择性衰落</strong>：CP-OFDM可以有效地处理频率选择性信道衰落，因为它将信道衰落作用在每个子载波上，而不是整个带宽上。</p>
+</li>
+</ol>
+<blockquote>
+<p>CP-OFDM是许多现代通信系统的核心调制技术之一，它在面对多径传播和频率选择性衰落等信道特性时表现出色。它已广泛用于无线局域网（Wi-Fi）、蜂窝移动通信（LTE和5G NR）以及其他通信标准中。<br>通过使用CP-OFDM，这些系统能够在复杂的无线环境中实现高效的数据传输。</p>
+</blockquote>
+<h3 id="DFT-S-OFDM"><a href="#DFT-S-OFDM" class="headerlink" title="DFT-S-OFDM"></a>DFT-S-OFDM</h3><p>DFT-Spread-OFDM（DFT-Spread Orthogonal Frequency Division Multiplexing）是一种改进的OFDM波形设计，旨在提高OFDM系统的抗多径传播和频率选择性衰落等信道效应的性能。<br>DFT-S-OFDM的核心思想是在标准OFDM符号之前引入一个DFT扩展序列，这个序列经过离散傅立叶变换（DFT）后会生成一组频域上的增强信号，从而增强了信号的鲁棒性。</p>
+<p>以下是关于DFT-Spread-OFDM的一些关键特点和工作原理：</p>
+<ol>
+<li><p><strong>DFT扩展序列</strong>：DFT-S-OFDM引入了一个DFT扩展序列，通常是长度为N的复数序列，其中N通常等于OFDM子载波的数量。这个序列经过离散傅立叶变换后生成一组频域上的复数权重，用于增强OFDM符号的频域表示。</p>
+</li>
+<li><p><strong>频域增强</strong>：DFT扩展序列的频域权重用于加权OFDM子载波，使得部分子载波的能量增强，而其他子载波的能量减小。这样，信号在频域上具有更均匀的功率分布，减少了峰值功率，提高了抗峰均比（PAPR）性能。</p>
+</li>
+<li><p><strong>抗多径传播</strong>：DFT-S-OFDM的频域增强特性有助于减少多径传播引起的符号间干扰，提高了系统的抗多径传播性能。</p>
+</li>
+<li><p><strong>频率选择性衰落</strong>：由于频域增强，DFT-S-OFDM在频率选择性衰落信道中表现更出色。它能够更好地适应信道的频率响应变化。</p>
+</li>
+<li><p><strong>DFT-S-OFDM符号生成</strong>：生成DFT-S-OFDM符号的过程包括将数据符号与DFT扩展序列进行元素相乘，然后进行逆离散傅立叶变换（IDFT）以生成时域上的OFDM符号。</p>
+</li>
+<li><p><strong>系统复杂性</strong>：尽管DFT-S-OFDM提供了一些性能优势，但它也增加了系统的复杂性，需要在发送端和接收端进行DFT和IDFT等额外的计算操作。</p>
+</li>
+</ol>
+<blockquote>
+<p>DFT-S-OFDM是一种用于提高OFDM系统性能的技术，特别适用于具有频率选择性衰落和多径传播的无线通信环境。它在LTE和5G NR等通信标准中得到了广泛应用，以提高系统的鲁棒性和性能。</p>
+</blockquote>
+<h3 id="频率选择性衰落"><a href="#频率选择性衰落" class="headerlink" title="频率选择性衰落"></a>频率选择性衰落</h3><blockquote>
+<p>频率选择性衰落（Frequency Selective Fading）是一种无线通信信道的特性，其中信号在频率上以不同的方式衰减或发生多径传播。这意味着不同频率成分的信号在传播路径上会经历不同的衰落和相位变化。频率选择性衰落是由多径传播和传播介质的不均匀性引起的，它通常在高速移动通信和室内通信环境中出现。</p>
+</blockquote>
+<p>频率选择性衰落的主要原因包括以下几点：</p>
+<ol>
+<li><p><strong>多径传播</strong>：当无线信号传播时，它可以通过多条不同的路径到达接收器，其中包括直射路径和反射、折射路径。这些路径具有不同的长度，导致了多径传播，其中不同频率成分的信号以不同的相位到达接收器。这导致了频率选择性衰落。</p>
+</li>
+<li><p><strong>传播介质的不均匀性</strong>：不同的频率成分受到传播介质（如大气、建筑物或地形）的影响可能会有所不同，导致频率选择性的传播损耗。这意味着一些频率可能会受到较大的衰减，而其他频率可能相对较少衰减。</p>
+</li>
+<li><p><strong>多普勒效应</strong>：高速移动通信设备引入了多普勒效应，其中发射机和接收机之间的相对速度会导致频率偏移。这会导致信号的不同频率成分经历不同的多普勒频移，进一步增加了频率选择性衰落的效应。</p>
+</li>
+</ol>
+<p>频率选择性衰落对无线通信系统具有挑战性，因为它会引起信号失真、多路径干扰和高比特错误率。为了应对频率选择性衰落，通信系统采用了各种技术，如均衡、信道编码、频谱保护和引入导频等，以提高通信质量和鲁棒性。这些技术可以减轻频率选择性衰落引起的信号质量下降，并提高通信系统的可靠性。</p>
+
                 
             </div>
             <hr/>

@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git使用, Sparrow">
-    <meta name="description" content="git管理工程文件Git基本原理Git本地有四个个工作区域：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)、远程的git仓库(Remote Dir">
+    <meta name="keywords" content="CMake使用, Sparrow">
+    <meta name="description" content="CMake使用基本使用cmake_minimum_required(VERSION 3.0)
+project(ProjectName)
+add_executable(executable_name src.cpp)
+
+cmake_minim">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git使用 | Sparrow</title>
+    <title>CMake使用 | Sparrow</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git使用</h1>
+                    <h1 class="description center-align post-title">CMake使用</h1>
                 </div>
             </div>
         </div>
@@ -363,8 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/CMake/">
+                                <span class="chip bg-color">CMake</span>
                             </a>
                         
                     </div>
@@ -388,7 +392,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2023-09-28
+                    2023-11-02
                 </div>
                 
 
@@ -412,110 +416,222 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="git管理工程文件"><a href="#git管理工程文件" class="headerlink" title="git管理工程文件"></a>git管理工程文件</h1><h2 id="Git基本原理"><a href="#Git基本原理" class="headerlink" title="Git基本原理"></a>Git基本原理</h2><p>Git本地有四个个工作区域：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)、远程的git仓库(Remote Directory)。</p>
+                <h1 id="CMake使用"><a href="#CMake使用" class="headerlink" title="CMake使用"></a>CMake使用</h1><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">cmake_minimum_required</span><span class="token punctuation">(</span><span class="token property">VERSION</span> <span class="token number">3.0</span><span class="token punctuation">)</span>
+<span class="token keyword">project</span><span class="token punctuation">(</span>ProjectName<span class="token punctuation">)</span>
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span>executable_name src.cpp<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>Workspace：工作区，存放项目代码的地方</li>
-<li>Index / Stage：暂存区，用于临时存放改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
-<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有提交的所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
-<li>Remote：远程仓库，托管代码的服务器</li>
+<li><p>cmake_minimum_required：指定使用的 cmake 的最低版本</p>
+</li>
+<li><p>project：定义工程名称，并可指定工程的版本、工程描述、web主页地址、支持的语言（默认情况支持所有语言）</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">project</span><span class="token punctuation">(</span>project_name
+    [<span class="token property">VERSION</span> version]
+    [LANGUAGES CXX C]
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>add_executable：创建一个可执行文件，指定了可执行文件的名称以及编译时需要的源文件。</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">add_executable</span><span class="token punctuation">(</span>target_name source1.cpp source2.cpp ...<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-<h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><ul>
-<li>设置用户名：<code>git config --global user.name "name"</code></li>
-<li>设置用户邮箱：<code>git config --global user.email address</code>、</li>
-</ul>
-<h3 id="git配置命令"><a href="#git配置命令" class="headerlink" title="git配置命令"></a>git配置命令</h3><ul>
-<li>查看配置：<code>git config -l</code></li>
-<li>查看系统配置：<code>git config --system --list</code></li>
-<li>查看用户配置：<code>git config --global --list</code></li>
-<li>编辑当前仓库 git 配置文件:<code>git config -e </code></li>
-<li>编辑系统上所有仓库的 git 配置文件：<code>git config -e --global</code></li>
-</ul>
-<h2 id="生成SSH链接Github"><a href="#生成SSH链接Github" class="headerlink" title="生成SSH链接Github"></a>生成SSH链接Github</h2><ol>
-<li><p>创建SSH密钥：<code>ssh-keygen -t rsa -C "emailaddress"</code></p>
-</li>
-<li><p>配置密钥生成方式</p>
-<ol>
-<li>确认密钥保存位置（直接回车，不修改）</li>
-<li>如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖</li>
-<li>创建密码（直接回车，不创建密码）</li>
-<li>确认密码</li>
-</ol>
-</li>
-<li><p>使用SSH链接Github</p>
-<ol>
-<li>在GitHub设置中的 <code>SSh and GPC keys</code> 中点击 <code>New SSH key</code></li>
-<li>将之前生成的 <code>id_rsa.pub</code> 文件中的内容都复制粘贴到 <code>key</code> 栏</li>
-<li>点击 <code>Add SSH key</code> 添加链接</li>
-</ol>
-</li>
-</ol>
-<h2 id="为Git配置代理"><a href="#为Git配置代理" class="headerlink" title="为Git配置代理"></a>为Git配置代理</h2><ul>
-<li><p>全局设置</p>
-<ul>
-<li><p>使用http代理 </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> http.proxy http://localhost:port
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> https.proxy https://localhost:port<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>使用socks5代理</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> http.proxy socks5://localhost:port
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> https.proxy socks5://localhost:port<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-</ul>
-</li>
-<li><p>设置SSH代理<br>  在 <code>.ssh</code> 文件中新建 <code>config</code> 文件, 并添加：</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Host gitHub.com
-    User    <span class="token function">git</span>
-    Hostname        github.com
-    Port    <span class="token number">22</span>
-    <span class="token comment"># Linux/Mac:</span>
-    <span class="token comment"># Proxycommand    /usr/bin/ncat --proxy 127.0.0.1:7890 --proxy-type socks5 %h %p</span>
+<h2 id="set用法"><a href="#set用法" class="headerlink" title="set用法"></a>set用法</h2><p><code>set</code> 命令用于在 CMake 中定义变量，它创建变量并为其赋值。可以使用 <code>set</code> 命令来定义各种类型的变量，包括普通字符串、路径、列表、布尔值等。</p>
+<p><code>set</code> 命令的基本语法如下：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set</span><span class="token punctuation">(</span>variable_name value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-    <span class="token comment"># Windows:</span>
-    Proxycommand   connect <span class="token parameter variable">-S</span> <span class="token number">127.0</span>.0.1:10809 %h %p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>取消代理</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> <span class="token parameter variable">--unset</span> http.proxy
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> <span class="token parameter variable">--unset</span> https.proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-</ul>
-<p>取消 <code>SSH</code> 代理只需将之前添加的 <code>config</code> 文件删除</p>
-<h2 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h2><ul>
-<li><p>创建新仓库</p>
 <ul>
-<li>在当前目录创建新仓库：<code>git init</code></li>
-<li>在指定目录创建新仓库：<code>git init newrepo</code>:</li>
+<li><p><code>variable_name</code> 是要定义的变量的名称，通常是一个字符串。</p>
+</li>
+<li><p><code>value</code> 是要为变量设置的值。这可以是一个普通字符串、路径、列表等，具体取决于的需求。</p>
+</li>
 </ul>
-</li>
-<li><p>添加远程仓库<br>  <code>git remote add origin  git@github.com:xxxxxx/ssssss</code></p>
-</li>
-<li><p>推送代码到远程仓库<br>  <code>git push</code></p>
-</li>
-<li><p>更新代码到本地<br>  <code>git pull</code></p>
-</li>
-<li><p>克隆仓库</p>
+<p>以下是一些示例：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set</span><span class="token punctuation">(</span>my_string_variable <span class="token string">"Hello, CMake!"</span><span class="token punctuation">)</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span>my_path_variable <span class="token string">"/path/to/some/directory"</span><span class="token punctuation">)</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span>my_list_variable <span class="token string">"item1"</span> <span class="token string">"item2"</span> <span class="token string">"item3"</span><span class="token punctuation">)</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span>my_boolean_variable <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这些示例中，我们使用 <code>set</code> 命令分别定义了字符串变量、路径变量、列表变量和布尔变量，并为它们分配了不同的值。</p>
+<h3 id="设置C-标准"><a href="#设置C-标准" class="headerlink" title="设置C++标准"></a>设置C++标准</h3><p>要在 CMake 中设置 C++ 标准，可以使用 <code>set</code> 命令来定义 <code>CMAKE_CXX_STANDARD</code> 变量，该变量表示所使用的 C++ 标准。</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_STANDARD</span> <span class="token number">17</span><span class="token punctuation">)</span>  <span class="token comment"># 设置C++标准为C++17</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="token boolean">ON</span><span class="token punctuation">)</span>  <span class="token comment"># 强制使用所设置的标准</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在上述示例中，我们将 C++ 标准设置为 C++17，同时通过将 <code>CMAKE_CXX_STANDARD_REQUIRED</code> 设置为 <code>ON</code>，强制使用所设置的标准。可以将 <code>CMAKE_CXX_STANDARD</code> 设置为任何受支持的C++标准，如C++98、C++11、C++14、C++17、C++20等，具体取决于的项目需求和编译器支持。</p>
+<h3 id="设置可执行文件输出目录"><a href="#设置可执行文件输出目录" class="headerlink" title="设置可执行文件输出目录"></a>设置可执行文件输出目录</h3><p>要在CMake中指定可执行文件的输出目录，可以使用<code>CMAKE_RUNTIME_OUTPUT_DIRECTORY</code>变量。这将设置所有可执行文件的输出路径。以下是如何设置可执行文件输出目录的示例：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_RUNTIME_OUTPUT_DIRECTORY</span> <span class="token punctuation">${</span><span class="token variable">PROJECT_SOURCE_DIR</span><span class="token punctuation">}</span>/bin<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在上述示例中，我们将可执行文件的输出路径设置为<code>${PROJECT_SOURCE_DIR}/bin</code>，其中<code>${PROJECT_SOURCE_DIR}</code>表示工程的根目录。<code>bin</code>是一个子目录，可以将可执行文件放在其中。</p>
+<p>将这个设置放在的CMakeLists.txt文件中，通常是在顶层的CMakeLists.txt文件中，以确保所有的可执行文件都输出到指定的目录。</p>
+<h2 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h2><ul>
+<li><p>aux_source_directory<br>  <code>aux_source_directory</code> 用于将指定目录中的所有源文件自动添加到CMake变量中，以便稍后将这些文件编译到可执行文件或其他目标中。这个命令通常用于简化项目中源文件的管理，特别是在有大量源文件的情况下。</p>
+<p>  <code>aux_source_directory</code> 命令的基本语法如下：</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">aux_source_directory</span><span class="token punctuation">(</span>directory variable<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ul>
-<li>克隆仓库到本地：<code>git clone &lt;repo&gt;</code></li>
-<li>克隆到指定的目录：<code>git clone &lt;repo&gt; &lt;directory&gt;</code></li>
+<li><code>directory</code> 是包含源文件的目录的路径。</li>
+<li><code>variable</code> 是一个CMake变量的名称，用于存储发现的源文件列表。</li>
 </ul>
+<p>  示例：</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">aux_source_directory</span><span class="token punctuation">(</span>src DIR_SRCS<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  在这个示例中，<code>aux_source_directory</code> 命令将 <code>src</code> 目录中的所有源文件的文件名（包括相对路径）自动添加到名为 <code>DIR_SRCS</code> 的CMake变量中。</p>
+<p>  然后，可以使用 <code>add_executable</code> 命令将这些源文件编译为可执行文件，例如：</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">add_executable</span><span class="token punctuation">(</span>my_app <span class="token punctuation">${</span>DIR_SRCS<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这将创建一个名为 <code>my_app</code> 的可执行文件，包括 <code>src</code> 目录中的所有源文件。</p>
+<p>  虽然 <code>aux_source_directory</code> 命令方便，但请注意它具有一定的局限性，特别是在大型项目中，更好的做法是明确列出所有源文件，以更好地控制构建过程。</p>
 </li>
-<li><p>添加Git仓库作为子模块<br>  <code>git submodule add git@github.com:xxxxxx/ssssss target_dir</code></p>
+<li><p>file<br>  <code>file</code> 是一个用于操作文件和目录的CMake命令。它提供了各种功能，如查找文件、创建目录、复制文件、删除文件、文件属性查询等，用于处理文件系统操作。<code>file</code> 命令非常灵活，可以用于许多不同的文件操作任务。</p>
+<p>  以下是一些 <code>file</code> 命令的示例用法：</p>
+<ol>
+<li>查找文件并将结果存储在变量中：</li>
+</ol>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">file</span><span class="token punctuation">(</span>GLOB MY_SOURCE_FILES <span class="token string">"src/*.cpp"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  上述示例中，<code>file</code> 命令使用 <code>GLOB</code> 模式查找 <code>src</code> 目录下的所有 <code>.cpp</code> 文件，并将结果存储在 <code>MY_SOURCE_FILES</code> 变量中。</p>
+<ol start="2">
+<li>创建目录：</li>
+</ol>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">file</span><span class="token punctuation">(</span>MAKE_DIRECTORY <span class="token string">"<span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span></span>/mydir"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这将在构建目录中创建一个名为 <code>mydir</code> 的目录。</p>
+<ol start="3">
+<li>复制文件：</li>
+</ol>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">file</span><span class="token punctuation">(</span>COPY <span class="token string">"source_file.txt"</span> DESTINATION <span class="token string">"<span class="token interpolation"><span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span></span>/destination_dir"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这将复制 <code>source_file.txt</code> 文件到 <code>destination_dir</code> 目录中。</p>
+<ol start="4">
+<li>删除文件：</li>
+</ol>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">file</span><span class="token punctuation">(</span>REMOVE <span class="token string">"file_to_delete.txt"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这将删除 <code>file_to_delete.txt</code> 文件。</p>
+<ol start="5">
+<li>查询文件属性：</li>
+</ol>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">file</span><span class="token punctuation">(</span>READ <span class="token string">"file_to_read.txt"</span> CONTENT<span class="token punctuation">)</span>
+<span class="token keyword">file</span><span class="token punctuation">(</span>READ <span class="token string">"file_to_read.txt"</span> CONTENT HEX<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  这将读取文件的内容并存储在 <code>CONTENT</code> 变量中。可以选择读取文本内容或十六进制内容，具体取决于需要。</p>
 </li>
 </ul>
-<h2 id="常用linux命令"><a href="#常用linux命令" class="headerlink" title="常用linux命令"></a>常用linux命令</h2><ul>
-<li>cd：改变目录</li>
-<li>cd..：会到上一级目录</li>
-<li>pwb：显示当前所在路径</li>
-<li>clear：清屏</li>
-<li>ls：列出当前文件夹内的所有文件</li>
-<li>touch：新建文件</li>
-<li>rm：删除文件</li>
-<li>mkdir：创建文件夹</li>
-<li>rm -r：删除文件夹</li>
-<li>mv：移动文件</li>
-<li>history：查看历史命令</li>
-<li>help</li>
-<li>exit：退出</li>
+<h2 id="设置头文件搜索路径"><a href="#设置头文件搜索路径" class="headerlink" title="设置头文件搜索路径"></a>设置头文件搜索路径</h2><ul>
+<li><p>include_directories</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">include_directories</span><span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">CMAKE_SOURCE_DIR</span><span class="token punctuation">}</span>/include<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  <code>include_directories</code> 命令用于设置头文件搜索路径，将<code>${CMAKE_SOURCE_DIR}/include</code>添加到搜索路径中，以确保能够正确包含位于<code>include</code> 目录下的头文件。</p>
+</li>
+<li><p>target_include_directories<br>  <code>target_include_directories</code> 命令用于在CMake中为特定的目标（通常是可执行文件或库）设置包含头文件的搜索路径。这使可以为每个目标配置不同的包含路径，以确保特定目标可以找到所需的头文件。</p>
+<p>  示例代码如下：</p>
+  <pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">target_include_directories</span><span class="token punctuation">(</span>my_target <span class="token namespace">PRIVATE</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_SOURCE_DIR</span><span class="token punctuation">}</span>/include<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  在这个示例中，<code>my_target</code> 是目标的名称，<code>${CMAKE_SOURCE_DIR}/include</code> 是要添加到该目标的包含路径。<code>PRIVATE</code> 表示这个包含路径仅适用于 <code>my_target</code> 目标，而不会影响其他目标。</p>
+<p>  这意味着在编译 <code>my_target</code> 时，CMake将在 <code>${CMAKE_SOURCE_DIR}/include</code> 目录中查找头文件，以便正确包含它们。</p>
+<p>  这种方式非常有用，因为可以为不同的目标设置不同的包含路径，以满足项目的特定需求。这提供了更大的灵活性和可配置性。</p>
+</li>
 </ul>
-<hr>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FE411P7B3?p=1">Git教程：B站</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">Git教程：RUNOOB</a></p>
+<h2 id="生成依赖库"><a href="#生成依赖库" class="headerlink" title="生成依赖库"></a>生成依赖库</h2><h3 id="生成静态库"><a href="#生成静态库" class="headerlink" title="生成静态库"></a>生成静态库</h3><p>要在CMake中生成静态库，可以使用<code>add_library</code>命令，指定目标类型为<code>STATIC</code>。以下是生成静态库的基本语法：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">add_library</span><span class="token punctuation">(</span>library_name <span class="token namespace">STATIC</span> source1.cpp source2.cpp ...<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>library_name</code> 是要创建的静态库的名称，通常是一个字符串。</li>
+<li><code>source1.cpp</code>、<code>source2.cpp</code> 等是的静态库的源文件，这些源文件将被编译成库。</li>
+</ul>
+<p>示例：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">add_library</span><span class="token punctuation">(</span>my_static_lib <span class="token namespace">STATIC</span> source1.cpp source2.cpp<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这将生成一个名为 <code>my_static_lib</code> 的静态库，并编译 <code>source1.cpp</code> 和 <code>source2.cpp</code> 这两个源文件到该库中。</p>
+<p>如果需要将多个源文件编译成静态库，可以列出它们，或者使用<code>aux_source_directory</code>命令来自动查找并包括源文件，如下所示：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">aux_source_directory</span><span class="token punctuation">(</span>src DIR_SRCS<span class="token punctuation">)</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>my_static_lib <span class="token namespace">STATIC</span> <span class="token punctuation">${</span>DIR_SRCS<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在这个示例中，<code>aux_source_directory</code> 命令用于自动查找<code>src</code>目录中的所有源文件，并将它们编译成<code>my_static_lib</code> 静态库。</p>
+<h3 id="生成动态库"><a href="#生成动态库" class="headerlink" title="生成动态库"></a>生成动态库</h3><p>使用 <code>add_library</code> 命令，指定目标类型为 <code>SHARED</code>，其余同静态库</p>
+<h3 id="设置依赖库生成路径"><a href="#设置依赖库生成路径" class="headerlink" title="设置依赖库生成路径"></a>设置依赖库生成路径</h3><pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># 设置静态库的生成路径</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_ARCHIVE_OUTPUT_DIRECTORY</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span>/lib<span class="token punctuation">)</span>
+
+<span class="token comment"># 设置共享库的生成路径</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token variable">CMAKE_LIBRARY_OUTPUT_DIRECTORY</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span>/lib<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="链接依赖库"><a href="#链接依赖库" class="headerlink" title="链接依赖库"></a>链接依赖库</h3><p>在CMake中，可以使用 <code>target_link_libraries</code> 命令来链接依赖库，这些依赖库可以是静态库、动态库或其他目标。以下是如何链接依赖库的示例：</p>
+<p>假设有一个可执行文件 <code>my_app</code>，它依赖于两个库：<code>my_static_lib</code>（静态库）和 <code>my_dynamic_lib</code>（动态库）。可以使用 <code>target_link_libraries</code> 命令来链接这些库：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">add_executable</span><span class="token punctuation">(</span>my_app main.cpp<span class="token punctuation">)</span>
+<span class="token keyword">target_link_libraries</span><span class="token punctuation">(</span>my_app my_static_lib my_dynamic_lib<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在这个示例中，<code>target_link_libraries</code> 命令用于将 <code>my_static_lib</code> 静态库和 <code>my_dynamic_lib</code> 动态库链接到 <code>my_app</code> 可执行文件中。这将确保在构建 <code>my_app</code> 时，CMake将自动链接这两个库，以便在运行 <code>my_app</code> 时可以使用它们的功能。</p>
+<p>还可以链接其他目标，不仅限于库文件，以满足的项目需求。这个命令非常灵活，允许指定多个依赖项，以确保项目的正确构建和链接。</p>
+<h2 id="set-target-properties"><a href="#set-target-properties" class="headerlink" title="set_target_properties"></a>set_target_properties</h2><p><code>set_target_properties</code> 命令可以用来设置目标（如可执行文件、静态库或共享库）的各种属性。以下是一些常见的目标属性，可以使用 <code>set_target_properties</code> 来设置它们：</p>
+<ol>
+<li><code>COMPILE_DEFINITIONS</code>：设置目标的编译定义（预处理器宏）。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">COMPILE_DEFINITIONS</span> DEBUG<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li><code>COMPILE_FLAGS</code>：设置目标的编译选项。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">COMPILE_FLAGS</span> <span class="token string">"-O2"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="3">
+<li><code>LINK_FLAGS</code>：设置目标的链接选项。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">LINK_FLAGS</span> <span class="token string">"-Wl,--as-needed"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="4">
+<li><code>INCLUDE_DIRECTORIES</code>：设置目标的头文件搜索路径。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">INCLUDE_DIRECTORIES</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_SOURCE_DIR</span><span class="token punctuation">}</span>/include<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="5">
+<li><code>RUNTIME_OUTPUT_DIRECTORY</code>：设置目标的可执行文件输出目录。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">RUNTIME_OUTPUT_DIRECTORY</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span>/bin<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="6">
+<li><code>LIBRARY_OUTPUT_DIRECTORY</code>：设置目标的共享库输出目录。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">LIBRARY_OUTPUT_DIRECTORY</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span>/lib<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="7">
+<li><code>ARCHIVE_OUTPUT_DIRECTORY</code>：设置目标的静态库输出目录。</li>
+</ol>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>my_target <span class="token namespace">PROPERTIES</span> <span class="token property">ARCHIVE_OUTPUT_DIRECTORY</span> <span class="token punctuation">${</span><span class="token variable">CMAKE_BINARY_DIR</span><span class="token punctuation">}</span>/lib<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这只是一些常见的目标属性示例，还有其他属性可用，取决于的项目需求。可以根据需要使用 <code>set_target_properties</code> 命令来设置目标的属性，以满足特定的编译和构建需求。</p>
+<h2 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h2><ul>
+<li>系统平台简写变量：<code>WIN32</code>, <code>APPLE</code>, <code>UNIX</code><br><code>WIN32</code>：32 位 Windows 和 64 位 Windows 。<br><code>APPLE</code>：所有苹果产品（MacOS 或 iOS）<br><code>UNIX</code>：所有 Unix 类系统（FreeBSD, Linux, Android, MacOS, iOS）</li>
+</ul>
+<p>示例：</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">WIN32</span><span class="token punctuation">)</span>
+  <span class="token comment"># Windows-specific code</span>
+  <span class="token keyword">add_definitions</span><span class="token punctuation">(</span>-DWINDOWS<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment"># Linux-specific code</span>
+  <span class="token keyword">add_definitions</span><span class="token punctuation">(</span>-DLINUX<span class="token punctuation">)</span>
+<span class="token keyword">endif</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>编译器简写变量：<code>GNU</code>, <code>MSVC</code>, <code>Clang</code></li>
+</ul>
+<h2 id="编译类型（CMAKE-BUILD-TYPE）"><a href="#编译类型（CMAKE-BUILD-TYPE）" class="headerlink" title="编译类型（CMAKE_BUILD_TYPE）"></a>编译类型（CMAKE_BUILD_TYPE）</h2><ul>
+<li><code>Debug</code></li>
+<li><code>Release</code></li>
+<li><code>MinSizeRel</code></li>
+<li><code>RelWithDebInfo</code></li>
+</ul>
+<h3 id="判断编译类型（STREQUAL）"><a href="#判断编译类型（STREQUAL）" class="headerlink" title="判断编译类型（STREQUAL）"></a>判断编译类型（STREQUAL）</h3><pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># 判断</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">CMAKE_BUILD_TYPE</span><span class="token punctuation">}</span> <span class="token operator">STREQUAL</span> <span class="token string">"Debug"</span><span class="token punctuation">)</span>
+<span class="token comment"># Debug 配置</span>
+<span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token punctuation">${</span><span class="token variable">CMAKE_BUILD_TYPE</span><span class="token punctuation">}</span> <span class="token operator">STREQUAL</span> <span class="token string">"Release"</span><span class="token punctuation">)</span>
+<span class="token comment"># Release 配置</span>
+<span class="token keyword">else</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 其他配置</span>
+<span class="token keyword">endif</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="添加预处理宏定义"><a href="#添加预处理宏定义" class="headerlink" title="添加预处理宏定义"></a>添加预处理宏定义</h2><ul>
+<li><code>add_definitions</code></li>
+<li><code>add_compile_definitions</code></li>
+<li><code>target_compile_definitions</code></li>
+</ul>
+<blockquote>
+<p>顶层添加的预处理宏定义在子目录不生效</p>
+</blockquote>
 
                 
             </div>
@@ -542,7 +658,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://sparrowyou.github.io/2023/09/28/git-study-note/">http://sparrowyou.github.io/2023/09/28/git-study-note/</a>
+                    <a href="http://sparrowyou.github.io/2023/11/02/cmakenote/">http://sparrowyou.github.io/2023/11/02/cmakenote/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -580,8 +696,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/CMake/">
+                                    <span class="chip bg-color">CMake</span>
                                 </a>
                             
                         </div>
@@ -627,17 +743,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2023/09/28/edge-computing/">
+                <a href="/2023/11/02/cmakenote/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="边缘计算">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="CMake使用">
                         
-                        <span class="card-title">边缘计算</span>
+                        <span class="card-title">CMake使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,30 +764,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
-                                    通信
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%9A%E4%BF%A1/">
-                        <span class="chip bg-color">通信</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/">
-                        <span class="chip bg-color">边缘计算</span>
+                    <a href="/tags/CMake/">
+                        <span class="chip bg-color">CMake</span>
                     </a>
                     
                 </div>
@@ -684,13 +798,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/28/game-theory/">
+                <a href="/2023/10/15/cppskills/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="博弈论">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++小技巧">
                         
-                        <span class="card-title">博弈论</span>
+                        <span class="card-title">C++小技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -701,14 +815,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
-                                    通信
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -718,8 +832,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%9A%E4%BF%A1/">
-                        <span class="chip bg-color">通信</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
                     </a>
                     
                 </div>
